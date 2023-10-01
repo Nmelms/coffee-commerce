@@ -3,7 +3,6 @@ import { fetchWooCommerceProducts } from "./utils/wooCommerceApi";
 import { Button } from "react-bootstrap";
 
 export default function Home() {
-  fetchWooCommerceProducts();
   return (
     <div className="homepage">
       <div className="container vh-100 d-flex flex-column align-items-center justify-content-center">

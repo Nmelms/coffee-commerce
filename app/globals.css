@@ -88,7 +88,7 @@ body {
 body {
   height: 100vh;
   background-position: center;
-  background-color: black !important;
+  background-color: #f8f8ff !important;
 }
 
 a {
@@ -102,6 +102,9 @@ a {
   background-size: cover;
   background-position: center;
 }
+.store .container {
+  margin-top: 10vh;
+}
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -114,7 +117,6 @@ a {
   top: 0;
   left: 0;
   width: 100vw;
-  /* filter: blur(4px); */
   background-color: transparent;
 }
 .nav-link {

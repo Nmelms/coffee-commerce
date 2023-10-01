@@ -10,7 +10,6 @@ const api = new WooCommerceRestApi({
 export async function fetchWooCommerceProducts() {
   try {
     const response = await api.get("products");
-    console.log(response);
     return response;
   } catch (error) {
     throw new Error(error);
