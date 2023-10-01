@@ -1,8 +1,9 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import { fetchWooCommerceProducts } from "./utils/wooCommerceApi";
 import { Button } from "react-bootstrap";
 
 export default function Home() {
+  fetchWooCommerceProducts();
   return (
     <div className="container homepage d-flex flex-column justify-content-center">
       <div className="row">
