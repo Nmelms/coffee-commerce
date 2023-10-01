@@ -9,17 +9,17 @@ const storePage = async () => {
       <div className="container">
         <div className="row">
           <div className="col-3 ">this is the nav sections</div>
-          <div className="col-9 container  border ">
-            <div className="row">
-              {products.data.map((product) => {
-                return (
-                  <ProductCard
-                    img={product.images[0].src}
-                    name={product.name}
-                  />
-                );
-              })}
-            </div>
+          <div className="col-9 flex-wrap container border d-flex  ">
+            {products.data.map((product) => {
+              return (
+                <ProductCard
+                  img={product.images[0].src}
+                  price={product.price}
+                  name={product.name}
+                  roast={product.acf.coffee_roast}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
