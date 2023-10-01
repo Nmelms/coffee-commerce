@@ -1,5 +1,6 @@
 const page = () => {
-  return <div>this is the store page</div>;
+  return;
+  <div className="store"></div>;
 };
 
 export default page;

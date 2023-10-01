@@ -87,15 +87,20 @@ body {
 
 body {
   height: 100vh;
-  background-color: gray !important;
-  background: url("/bg.jpg");
-  background-size: cover;
   background-position: center;
+  background-color: black !important;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+.homepage {
+  height: 100vh;
+  background-color: gray !important;
+  background: url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -105,6 +110,9 @@ a {
 }
 
 .navBar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
   width: 100vw;
   /* filter: blur(4px); */
   background-color: transparent;
@@ -117,9 +125,11 @@ a {
   color: white !important;
 }
 .main-title {
+  position: relative;
   font-size: 40px;
   text-align: center;
   color: white;
+  bottom: 25%;
 }
 .shop-btn {
   background-color: brown !important;
