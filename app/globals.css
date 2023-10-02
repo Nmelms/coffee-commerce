@@ -117,6 +117,27 @@ a {
     width: auto;
   }
 }
+.product-card {
+  .roast {
+    color: white;
+    width: 100px;
+  }
+  &.light {
+    .roast {
+      background-color: #967259;
+    }
+  }
+  &.medium {
+    .roast {
+      background-color: #634832;
+    }
+  }
+  &.dark {
+    .roast {
+      background-color: #38220f;
+    }
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   html {
