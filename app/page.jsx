@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { fetchWooCommerceProducts } from "./utils/wooCommerceApi";
 import { Button } from "react-bootstrap";
 
 export default function Home() {

@@ -1,11 +1,11 @@
 import SideNav from "../components/SideNav";
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import ProductList from "../components/ProductList";
-import { fetchWooCommerceProducts } from "../utils/wooCommerceApi";
 
 const storePage = async () => {
-  let products = await fetchWooCommerceProducts();
-  console.log(products);
+  const response = await fetch("http://localhost:3000/api/products");
+  const products = await response.json();
+
   return (
     <div className="store">
       <div className="container">
@@ -14,7 +14,7 @@ const storePage = async () => {
             <SideNav />
           </div>
           <div className="col-9 flex-wrap container border d-flex  ">
-            <ProductList></ProductList>
+            <ProductList products={products}></ProductList>
           </div>
         </div>
       </div>

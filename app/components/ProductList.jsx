@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 const ProductList = ({ products }) => {
   return (
     <div>
-      {products.data.map((product) => {
+      {products.map((product) => {
         return (
           <ProductCard
             img={product.images[0].src}
