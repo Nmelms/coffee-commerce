@@ -14,7 +14,7 @@ const storePage = async () => {
             <SideNav />
           </div>
           <div className="col-9 flex-wrap container border d-flex  ">
-            <ProductList products={products}></ProductList>
+            <ProductList data={products}></ProductList>
           </div>
         </div>
       </div>

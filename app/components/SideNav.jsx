@@ -1,17 +1,21 @@
 "use client";
 import { Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { useStore } from "../appStore";
 
 const SideNav = ({ roast, setRoast }) => {
+  const names = useStore((state) => state.name);
+
   const handleChange = (e) => {
-    e.target.checked
-      ? setRoast([...roast, e.target.value])
-      : setRoast(roast.filter((val) => val != e.target.value));
+    const { checked, value } = e.target;
+    useStore.setState((state) => ({
+      name: checked
+        ? [...state.name, value]
+        : state.name.filter((val) => val !== value),
+    }));
+    console.log(useStore.getState().name);
   };
 
-  useEffect(() => {
-    console.log(roast);
-  }, [roast]);
   return (
     <div className="sideNav mt-0">
       <div className="row">
