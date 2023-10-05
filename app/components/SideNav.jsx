@@ -2,6 +2,7 @@
 import { Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useStore } from "../appStore";
+import Slider from "./Slider";
 
 const SideNav = ({ roast, setRoast }) => {
   const names = useStore((state) => state.name);
@@ -13,7 +14,6 @@ const SideNav = ({ roast, setRoast }) => {
         ? [...state.name, value]
         : state.name.filter((val) => val !== value),
     }));
-    console.log(useStore.getState().name);
   };
 
   return (
@@ -43,6 +43,9 @@ const SideNav = ({ roast, setRoast }) => {
             onChange={handleChange}
           />
         </Form>
+      </div>
+      <div>
+        <Slider />
       </div>
     </div>
   );
