@@ -1,20 +1,28 @@
 import SideNav from "../components/SideNav";
-import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import ProductList from "../components/ProductList";
 
-const storePage = async () => {
-  const response = await fetch("http://localhost:3000/api/products");
+const getProductsData = async () => {
+  const response = await fetch("http://localhost:3000/api/products", {
+    next: {
+      revalidate: 60,
+    },
+  });
   const products = await response.json();
+  return products;
+};
+
+const storePage = async () => {
+  const proudctData = await getProductsData();
 
   return (
     <div className="store">
       <div className="container">
         <div className="row">
           <div className="col-3 position-relative">
-            <SideNav />
+            <SideNav data={proudctData} />
           </div>
           <div className="col-9 flex-wrap container border d-flex  ">
-            <ProductList data={products}></ProductList>
+            <ProductList></ProductList>
           </div>
         </div>
       </div>

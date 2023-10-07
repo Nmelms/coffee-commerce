@@ -1,32 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import ProductCard from "./ProductCard";
-import { useStore } from "../appStore";
+import { useFilterStore } from "../useFilterStore";
 
-const ProductList = ({ data }) => {
-  const [products, setProducts] = useState([]);
-  const filters = useStore((state) => state.name);
-  let filteredProducts = [...data];
-  useEffect(() => {
-    if (filters.length === 0) {
-      setProducts(data);
-    } else {
-      const filteredProducts = data.filter((product) =>
-        filters.some((filter) => product.acf.coffee_roast === filter)
-      );
-
-      setProducts(filteredProducts);
-    }
-  }, [filters, data]);
-  // the effect depends on both filters and the original data
-
+const ProductList = () => {
+  const { filters, products } = useFilterStore();
   return (
     <>
-      {products.map((product) => {
+      {products.filtered.map((product) => {
         return (
           <ProductCard
-            key={uuidv4()}
+            key={product.id}
             img={product.images[0].src}
             price={product.price}
             name={product.name}
