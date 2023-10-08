@@ -3,7 +3,7 @@ import { create } from "zustand";
 export const useFilterStore = create((set) => ({
   filters: {
     roast: [],
-    price: [],
+    price: 0,
     brand: [],
     // ... add other filters
   },

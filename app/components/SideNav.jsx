@@ -16,11 +16,17 @@ const SideNav = ({ data }) => {
   useEffect(() => {
     const runFilters = () => {
       let result = products.all;
-
+      //roast filter
       if (filters.roast.length) {
         result = result.filter((product) =>
           filters.roast.includes(product.acf.coffee_roast)
         );
+      }
+      //Price slider filter
+      if (filters.price) {
+        result = result.filter((product) => {
+          return Math.round(product.price) <= filters.price;
+        });
       }
 
       // Add more filter logic here for price, brand, etc.
