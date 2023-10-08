@@ -188,6 +188,9 @@ a {
   display: none;
   border: 2px solid black;
 }
+.offcanvas-body .sideNav {
+  display: block;
+}
 
 /* md */
 @media (min-width: 768px) {

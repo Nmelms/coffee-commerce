@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
+import SideNav from "./SideNav";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
-function MobileFilter() {
+function MobileFilter({ data }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,8 +21,7 @@ function MobileFilter() {
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <SideNav data={data} />
         </Offcanvas.Body>
       </Offcanvas>
     </div>

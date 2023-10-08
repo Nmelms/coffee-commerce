@@ -19,11 +19,11 @@ const storePage = async () => {
     <div className="store">
       <div className="container">
         <div className="row">
-          <div className="col-3 position-relative">
+          <div className="col-md-3 position-relative">
             <SideNav data={proudctData} />
-            <MobileFilter />
+            <MobileFilter data={proudctData} />
           </div>
-          <div className="col-9 flex-wrap container border d-flex  ">
+          <div className="col-12 col-md-9 flex-wrap container border d-flex  ">
             <ProductList></ProductList>
           </div>
         </div>
