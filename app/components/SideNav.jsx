@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import Slider from "./Slider";
 import RoastFilter from "./RoastFilter";
+import MobileFilter from "./MobileFilter";
 import { useFilterStore } from "../useFilterStore";
 
 const SideNav = ({ data }) => {

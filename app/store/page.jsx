@@ -1,5 +1,6 @@
 import SideNav from "../components/SideNav";
 import ProductList from "../components/ProductList";
+import MobileFilter from "../components/MobileFilter";
 
 const getProductsData = async () => {
   const response = await fetch("http://localhost:3000/api/products", {
@@ -20,6 +21,7 @@ const storePage = async () => {
         <div className="row">
           <div className="col-3 position-relative">
             <SideNav data={proudctData} />
+            <MobileFilter />
           </div>
           <div className="col-9 flex-wrap container border d-flex  ">
             <ProductList></ProductList>

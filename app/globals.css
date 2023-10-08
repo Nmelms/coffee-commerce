@@ -185,11 +185,20 @@ a {
 }
 
 .sideNav {
+  display: none;
   border: 2px solid black;
 }
 
 /* md */
 @media (min-width: 768px) {
+  .sideNav {
+    display: block;
+    border: 2px solid black;
+  }
+  .mobileFilter {
+    display: none;
+  }
+
   /* your styles here */
 }
 

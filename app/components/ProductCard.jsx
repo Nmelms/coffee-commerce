@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 const ProductCard = ({ name, img, price, roast }) => {
   let roastStr = roast;
   return (
-    <div className="col-4">
+    <div className="col-6 col-lg-4">
       <div className={`${roast} d-flex m-2 border product-card `}>
         <div className="row h-50">
           <Image
