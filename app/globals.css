@@ -102,9 +102,7 @@ a {
   background-size: cover;
   background-position: center;
 }
-.store .container {
-  margin-top: 10vh;
-}
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -182,6 +180,9 @@ a {
   background-color: black;
   height: 50px;
   width: 50px;
+}
+.store {
+  margin-top: 10vh;
 }
 
 .sideNav {

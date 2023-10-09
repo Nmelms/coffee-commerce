@@ -13,7 +13,7 @@ function MobileFilter({ data }) {
   return (
     <div className="mobileFilter">
       <Button variant="primary" onClick={handleShow}>
-        Launch
+        Filter
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
