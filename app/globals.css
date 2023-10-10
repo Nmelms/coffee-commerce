@@ -193,6 +193,25 @@ a {
   display: block;
 }
 
+/* PRODUCT PAGE */
+
+.productPage {
+  padding-top: 10vh;
+  height: 100dvh;
+  background-color: #38220f;
+}
+
+.productDetails {
+  height: 100%;
+  width: 100%;
+  background-color: #967259;
+  border-radius: 45px 45px 0 0;
+  text-align: center;
+  h2 {
+    margin-top: 2rem;
+  }
+}
+
 /* md */
 @media (min-width: 768px) {
   .sideNav {
