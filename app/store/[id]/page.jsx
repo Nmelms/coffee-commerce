@@ -1,6 +1,7 @@
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
+import AddToCartBtn from "../../components/AddToCartBtn";
 
 const fetchProduct = async ({ id }) => {
   const api = new WooCommerceRestApi({
@@ -34,7 +35,7 @@ const ProductPage = async ({ params }) => {
         {product.data.description}
         <span className="productPrice">${product.data.price}</span>
         <span>Quantity component</span>
-        <Button className="rounded-pill m-3">Order Now</Button>
+        <AddToCartBtn product={product.data} />
       </div>
     </div>
   );

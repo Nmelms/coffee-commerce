@@ -32,3 +32,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Issues encountered:
+Hosting front and backend separately locally.
+basic understanding of client vs server components
+using async await only on server components.
+creating single and dynamic api endpoints and pages.
+updating state on a server component.
+First attempted passing in a client component into a server component (the add to cart button) ending up using the cart rest api
+state did not presist when navigating to a from the page.
+creating a nonce token
