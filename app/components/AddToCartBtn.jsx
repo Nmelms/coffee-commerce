@@ -1,28 +1,33 @@
 "use client";
 import useCartStore from "../useCartStore";
 const AddToCartBtn = ({ product }) => {
-  const { addToCart, cart } = useCartStore();
-  const handleClick = (id) => {
-    fetch("https://ecomm.local/wp-json/wc/store/cart/add-item", {
+  async function fetchNonce() {
+    const response = await fetch(
+      "http://ecomm.local/wp-json/myplugin/v1/nonce"
+    );
+    const data = await response.json();
+    return data.nonce;
+  }
+  const handleClick = async (id) => {
+    const nonce = await fetchNonce();
+    console.log(nonce);
+    fetch("http://ecomm.local/wp-json/wc/store/v1/cart/add-item", {
       method: "POST",
-
-      // Adding body or contents to send
-      body: JSON.stringify({
-        id: 30,
-        quantity: 1,
-      }),
-
-      // Adding headers to the request
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-Type": "application/json",
+        Nonce: nonce,
       },
-    })
-      // Converting to JSON
-      .then((response) => console.log(response));
+      body: JSON.stringify({
+        id: 27,
+      }),
+    });
   };
 
-  return <button onClick={() => handleClick()}>addToCartBtn</button>;
+  return (
+    <>
+      <button onClick={() => handleClick()}>addToCartBtn</button>
+    </>
+  );
 };
 
 export default AddToCartBtn;

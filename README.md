@@ -42,3 +42,7 @@ updating state on a server component.
 First attempted passing in a client component into a server component (the add to cart button) ending up using the cart rest api
 state did not presist when navigating to a from the page.
 creating a nonce token
+decided on creating my own post api routes and trying to use primsa
+attemp to connect with prisma but will overwirte database
+statred using the rest api propley with a nonce
+working on passing cart token
