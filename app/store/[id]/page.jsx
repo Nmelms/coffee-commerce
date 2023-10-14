@@ -35,7 +35,7 @@ const ProductPage = async ({ params }) => {
         {product.data.description}
         <span className="productPrice">${product.data.price}</span>
         <span>Quantity component</span>
-        <AddToCartBtn product={product.data} />
+        <AddToCartBtn product={product.data.id} />
       </div>
     </div>
   );

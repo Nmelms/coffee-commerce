@@ -2,7 +2,8 @@
 import { NextResponse } from "next/server";
 import useCartStore from "../useCartStore";
 let carttoken = "";
-const AddToCartBtn = () => {
+const AddToCartBtn = ({ product }) => {
+  console.log(product);
   async function fetchNonce() {
     const response = await fetch(
       "http://ecomm.local/wp-json/myplugin/v1/nonce"
@@ -27,7 +28,7 @@ const AddToCartBtn = () => {
         "Cart-Token": carttoken,
       },
       body: JSON.stringify({
-        id: 30,
+        id: product,
       }),
     });
     let message = await res.json();
