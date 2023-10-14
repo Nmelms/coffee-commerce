@@ -2,6 +2,7 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import AddToCartBtn from "../../components/AddToCartBtn";
+import { cookies } from "next/headers";
 
 const fetchProduct = async ({ id }) => {
   const api = new WooCommerceRestApi({
@@ -10,7 +11,6 @@ const fetchProduct = async ({ id }) => {
     consumerSecret: process.env.CONSUMER_SECRET,
     version: "wc/v3",
   });
-
   try {
     const response = await api.get(`products/${id}`);
     return response;
