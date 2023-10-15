@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 export async function POST(request) {
   let req = await request.json();
   let id = req.id;
-  console.log(req.id);
   async function fetchNonce() {
     const response = await fetch(
       "http://ecomm.local/wp-json/myplugin/v1/nonce"

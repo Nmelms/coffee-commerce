@@ -45,20 +45,8 @@ const AddToCartBtn = ({ product }) => {
     return Response.json({ message: "did good" });
   };
 
-  const fetchCart = async () => {
-    let token = localStorage.getItem("carttoken");
-    const res = await fetch("http://ecomm.local/wp-json/wc/store/v1/cart/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Cart-Token": token,
-      },
-    });
-  };
-
   return (
     <>
-      <button onClick={() => handleClick()}>addToCartBtn</button>
       <button onClick={() => fetchCart()}>fetch cart</button>
     </>
   );
