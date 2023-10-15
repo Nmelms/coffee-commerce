@@ -1,6 +1,8 @@
 "use client";
 import { NextResponse } from "next/server";
 import { useEffect, useState } from "react";
+import RemoveBtn from "../components/RemoveBtn";
+import Image from "next/image";
 
 const cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -16,15 +18,27 @@ const cart = () => {
       .then((response) => response.json())
       .then((data) => {
         setCartItems(data.items);
+        console.log(data.items);
       });
   }, []);
 
-  console.log(cartItems);
-
   return (
-    <div>
+    <div className="cart-list">
       {cartItems?.map((item) => (
-        <h1>{item.id}</h1>
+        <div className="d-flex align-items-center">
+          <Image
+            src={item.images[0].src}
+            alit="iamge"
+            height={100}
+            width={100}
+          />
+          <h4>{item.name}</h4>
+          <RemoveBtn
+            setCartItems={setCartItems}
+            cartItems={cartItems}
+            num={item.key}
+          />
+        </div>
       ))}
     </div>
   );

@@ -212,6 +212,10 @@ a {
   }
 }
 
+.cart-list {
+  margin-top: 10vh;
+}
+
 /* md */
 @media (min-width: 768px) {
   .sideNav {

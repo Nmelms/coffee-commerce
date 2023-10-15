@@ -46,3 +46,5 @@ decided on creating my own post api routes and trying to use primsa
 attemp to connect with prisma but will overwirte database
 statred using the rest api propley with a nonce
 working on passing cart token
+eventually was able to understand how to save the cart token
+made a post request inside a post request and saved the cart toek in local storage

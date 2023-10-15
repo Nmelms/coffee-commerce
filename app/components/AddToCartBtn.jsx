@@ -47,7 +47,7 @@ const AddToCartBtn = ({ product }) => {
 
   return (
     <>
-      <button onClick={() => fetchCart()}>fetch cart</button>
+      <button onClick={() => handleClick()}>addToCartBtn</button>
     </>
   );
 };
