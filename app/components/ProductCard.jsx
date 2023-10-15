@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
+import AddToCartBtn from "./AddToCartBtn";
 import Link from "next/link";
 
 const ProductCard = ({ name, img, price, roast, id }) => {
@@ -26,7 +27,7 @@ const ProductCard = ({ name, img, price, roast, id }) => {
             </span>
           </div>
 
-          <Button>ADD TO CART</Button>
+          <AddToCartBtn product={id}>ADD to Cart</AddToCartBtn>
         </div>
       </Link>
     </div>

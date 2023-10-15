@@ -12,7 +12,8 @@ const AddToCartBtn = ({ product }) => {
     return data.nonce;
   }
 
-  const handleClick = async (id) => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     if (localStorage.getItem("carttoken" === null)) {
       localStorage.setItem("carttoken", "");
     }
@@ -38,7 +39,6 @@ const AddToCartBtn = ({ product }) => {
       carttoken = token;
     } else {
       carttoken = token;
-      // console.log(token);
     }
     if (carttoken === "") {
     }
@@ -47,7 +47,7 @@ const AddToCartBtn = ({ product }) => {
 
   return (
     <>
-      <button onClick={() => handleClick()}>addToCartBtn</button>
+      <button onClick={(e) => handleClick(e)}>addToCartBtn</button>
     </>
   );
 };
