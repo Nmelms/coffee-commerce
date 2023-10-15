@@ -7,7 +7,7 @@ const ProductCard = ({ name, img, price, roast, id }) => {
   let roastStr = roast;
   return (
     <div className="col-6 col-lg-4">
-      <Link href={`/store/${id}`}>
+      <Link href={`/shop/${id}`}>
         <div className={`${roast} d-flex m-2 border product-card `}>
           <div className="row h-50">
             <Image
