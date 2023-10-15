@@ -42,6 +42,7 @@ const AddToCartBtn = ({ product }) => {
     }
     if (carttoken === "") {
     }
+
     return Response.json({ message: "did good" });
   };
 

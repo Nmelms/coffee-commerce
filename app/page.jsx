@@ -9,7 +9,7 @@ export default function Home() {
           <h1>Enjoy Your Happy Moment With Coffee</h1>
         </div>
 
-        <Button href="/store" className="shop-btn">
+        <Button href="/shop" className="shop-btn">
           SHOP NOW
         </Button>
       </div>

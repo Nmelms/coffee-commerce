@@ -1,22 +1,24 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
-const prisma = new PrismaClient();
 
 export async function GET(request) {
-  const fetchCart = async () => {
-    let token = localStorage.getItem("carttoken");
-    const res = await fetch("http://ecomm.local/wp-json/wc/store/v1/cart/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Cart-Token": token,
-      },
-    });
+  let token = request.headers.get("Cart-Token");
 
-    return NextResponse.json(res);
-  };
+  const res = await fetch("http://ecomm.local/wp-json/wc/store/v1/cart", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Cart-Token": token,
+    },
+  });
+  const responseData = await res.json();
 
-  fetchCart();
+  // Return the JSON data as the response body
+  return new Response(JSON.stringify(responseData), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
 
 // export async function POST() {

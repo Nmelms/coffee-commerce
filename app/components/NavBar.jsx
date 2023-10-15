@@ -28,11 +28,8 @@ const NavBar = () => {
             <Link className="nav-link" href="/shop">
               Shop
             </Link>
-            <Link
-              className="nav-link"
-              href="http://ecomm.local/wp-json/wc/store/cart"
-            >
-              Contact Us
+            <Link className="nav-link" href="/cart ">
+              Cart
             </Link>
           </Nav>
         </Navbar.Collapse>

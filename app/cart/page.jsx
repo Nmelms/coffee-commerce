@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 import { useEffect, useState } from "react";
 import RemoveBtn from "../components/RemoveBtn";
 import Image from "next/image";
-
+import CheckoutBtn from "../components/CheckoutBtn";
+let token = localStorage.getItem("carttoken");
 const cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  let token = localStorage.getItem("carttoken");
+
   useEffect(() => {
     fetch("http://ecomm.local/wp-json/wc/store/v1/cart/", {
       method: "GET",
@@ -40,6 +41,7 @@ const cart = () => {
           />
         </div>
       ))}
+      <CheckoutBtn>Proceed to Checout</CheckoutBtn>
     </div>
   );
 };
