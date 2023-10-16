@@ -216,6 +216,11 @@ a {
   margin-top: 10vh;
 }
 
+.address-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
 /* md */
 @media (min-width: 768px) {
   .sideNav {

@@ -2,7 +2,7 @@
 import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 let cartToken = localStorage.getItem("carttoken");
-const CheckoutBtn = () => {
+const CheckoutBtn = ({ orderData }) => {
   const [lineItems, setLineItems] = useState([]);
   useEffect(() => {
     console.log(lineItems);
@@ -40,7 +40,7 @@ const CheckoutBtn = () => {
         "Cart-Token": cartToken,
       },
       body: JSON.stringify({
-        line_items: lineItems,
+        ...orderData,
       }),
     });
   };
