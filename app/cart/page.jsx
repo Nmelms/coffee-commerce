@@ -6,6 +6,8 @@ import { Button } from "react-bootstrap";
 import Image from "next/image";
 import CheckoutBtn from "../components/CheckoutBtn";
 import AddressForm from "../components/AddressForm";
+import CartCard from "../components/CartCard";
+
 let token = localStorage.getItem("carttoken");
 const cart = () => {
   const [orderData, setOrderData] = useState({ line_items: [], billing: {} });
@@ -40,26 +42,21 @@ const cart = () => {
   }, []);
 
   return (
-    <div className="cart-list">
-      {cartItems?.map((item) => (
-        <div className="d-flex align-items-center">
-          <Image
-            src={item.images[0].src}
-            alit="iamge"
-            height={100}
-            width={100}
-          />
-          <h4>{item.name}</h4>
-          <RemoveBtn
+    <div className="cart">
+      <div className="cart-list container">
+        {cartItems?.map((item) => (
+          <CartCard
+            images={item.images}
+            name={item.name}
             setCartItems={setCartItems}
             cartItems={cartItems}
             num={item.key}
           />
-        </div>
-      ))}
-      <Button>Log products</Button>
-      <AddressForm orderData={orderData} setOrderData={setOrderData} />
-      <CheckoutBtn orderData={orderData}>Proceed to Checout</CheckoutBtn>
+        ))}
+        <Button>Log products</Button>
+        <AddressForm orderData={orderData} setOrderData={setOrderData} />
+        <CheckoutBtn orderData={orderData}>Proceed to Checout</CheckoutBtn>
+      </div>
     </div>
   );
 };

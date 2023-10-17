@@ -215,6 +215,12 @@ a {
 .cart-list {
   margin-top: 10vh;
 }
+.cart-card {
+  border-top: 1px solid black;
+}
+.cart-card:nth-last-child(1) {
+  border-bottom: 1px solid black;
+}
 
 .address-form {
   width: 50%;
