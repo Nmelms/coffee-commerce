@@ -30,11 +30,14 @@ const RemoveBtn = ({ num, setCartItems, cartItems }) => {
     console.log(newCart);
     setCartItems(newCart);
 
-    // setCartItems(newCart.items);
     return NextResponse.json(res);
   };
   return (
-    <Button onClick={handleClick} className="btn-danger">
+    <Button
+      style={{ height: "50px" }}
+      onClick={handleClick}
+      className="btn-danger remove-btn"
+    >
       X
     </Button>
   );

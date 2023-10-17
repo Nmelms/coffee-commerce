@@ -215,13 +215,28 @@ a {
 .cart-list {
   margin-top: 10vh;
 }
-.cart-card {
-  border-top: 1px solid black;
-}
-.cart-card:nth-last-child(1) {
+.cart-list > .container:last-child {
   border-bottom: 1px solid black;
 }
 
+.cart-card {
+  border-top: 1px solid black;
+  align-items: stretch;
+}
+.cart-card-name {
+  font-size: 1rem;
+}
+.cart-card-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card-name-wrapper {
+  /* align-items: stretch; */
+}
+.remove-btn {
+  margin-right: 0;
+  margin-left: auto;
+}
 .address-form {
   width: 50%;
   margin: 0 auto;

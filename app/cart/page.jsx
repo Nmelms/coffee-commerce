@@ -13,9 +13,11 @@ const cart = () => {
   const [orderData, setOrderData] = useState({ line_items: [], billing: {} });
   const [cartItems, setCartItems] = useState([]);
 
+  const priceInDollars = (price) => price / 100;
+
   useEffect(() => {
-    console.log(orderData);
-  }, [orderData]);
+    console.log(cartItems);
+  }, [cartItems]);
 
   useEffect(() => {
     fetch("http://ecomm.local/wp-json/wc/store/v1/cart/", {
@@ -51,12 +53,13 @@ const cart = () => {
             setCartItems={setCartItems}
             cartItems={cartItems}
             num={item.key}
+            price={priceInDollars(item.prices.price)}
           />
         ))}
-        <Button>Log products</Button>
-        <AddressForm orderData={orderData} setOrderData={setOrderData} />
-        <CheckoutBtn orderData={orderData}>Proceed to Checout</CheckoutBtn>
       </div>
+      <Button>Log products</Button>
+      <AddressForm orderData={orderData} setOrderData={setOrderData} />
+      <CheckoutBtn orderData={orderData}>Proceed to Checout</CheckoutBtn>
     </div>
   );
 };
