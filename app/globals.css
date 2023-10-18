@@ -233,6 +233,10 @@ a {
 .card-name-wrapper {
   /* align-items: stretch; */
 }
+.order-total {
+  font-size: 20px;
+  margin-right: 50px;
+}
 .remove-btn {
   margin-right: 0;
   margin-left: auto;
