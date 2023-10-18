@@ -17,7 +17,7 @@ const cart = () => {
   const priceInDollars = (price) => price / 100;
 
   useEffect(() => {
-    console.log(data.totals?.total_price);
+    console.log(data.items);
   }, [data]);
 
   useEffect(() => {
@@ -50,11 +50,13 @@ const cart = () => {
       <div className="cart-list p-0 container">
         {cartItems?.map((item) => (
           <CartCard
+            id={item.id}
             images={item.images}
             name={item.name}
             setCartItems={setCartItems}
             cartItems={cartItems}
             num={item.key}
+            quantity={item.quantity}
             price={priceInDollars(item.prices.price)}
           />
         ))}

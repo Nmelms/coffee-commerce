@@ -230,9 +230,7 @@ a {
   max-width: 100%;
   max-height: 100%;
 }
-.card-name-wrapper {
-  /* align-items: stretch; */
-}
+
 .order-total {
   font-size: 20px;
   margin-right: 50px;

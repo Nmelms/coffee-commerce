@@ -2,8 +2,18 @@ import React from "react";
 import RemoveBtn from "./RemoveBtn";
 import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
+import QuantityCounter from "../components/QuantityCounter";
 
-const CartCard = ({ images, name, setCartItems, cartItems, num, price }) => {
+const CartCard = ({
+  images,
+  name,
+  setCartItems,
+  cartItems,
+  num,
+  price,
+  quantity,
+  id,
+}) => {
   return (
     <Container>
       <Row className="cart-card d-flex ">
@@ -23,11 +33,8 @@ const CartCard = ({ images, name, setCartItems, cartItems, num, price }) => {
           className="card-name-wrapper d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center"
         >
           <h4 className="cart-card-name">{name}</h4>
-          <div
-            style={{ height: "50px", width: "75px", border: "2px solid black" }}
-          >
-            quantity
-          </div>
+
+          <QuantityCounter id={id} quantity={quantity} />
         </Col>
         <Col
           xs={3}
