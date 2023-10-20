@@ -15,11 +15,6 @@ const cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const priceInDollars = (price) => price / 100;
-
-  // useEffect(() => {
-  //   console.log(data.items);
-  // }, [data]);
-
   useEffect(() => {
     fetch("http://ecomm.local/wp-json/wc/store/v1/cart/", {
       method: "GET",

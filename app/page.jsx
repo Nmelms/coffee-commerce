@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    fetch("http://localhost:3000/api/products/", {
+    fetch("http://localhost:3000/api/cart/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,6 @@ export default function Home() {
         <div className="main-title">
           <h1>Enjoy Your Happy Moment With Coffee</h1>
         </div>
-
         <Button href="/shop" className="shop-btn">
           SHOP NOW
         </Button>
