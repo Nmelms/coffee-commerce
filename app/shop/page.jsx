@@ -1,4 +1,3 @@
-"use client";
 import SideNav from "../components/SideNav";
 import ProductList from "../components/ProductList";
 import MobileFilter from "../components/MobileFilter";
@@ -6,7 +5,9 @@ import MobileFilter from "../components/MobileFilter";
 const storePage = async () => {
   const response = await fetch("http://localhost:3000/api/products", {
     method: "GET",
-    cache: "no-cache",
+    next: {
+      revalidate: 60,
+    },
   });
   const products = await response.json();
 
@@ -19,7 +20,7 @@ const storePage = async () => {
             <MobileFilter data={proudctData} /> */}
           </div>
           <div className="col-12 col-md-9 flex-wrap container border d-flex  ">
-            {/* <ProductList products={proudctData}></ProductList> */}
+            <ProductList products={products}></ProductList>
           </div>
         </div>
       </div>
