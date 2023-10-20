@@ -1,5 +1,4 @@
 "use client";
-import WooCommerce from "../lib/woocommerceAPI";
 import { Button } from "react-bootstrap";
 const QuantityCounter = ({ quantity, id }) => {
   const handleIncrement = async () => {

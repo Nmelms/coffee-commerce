@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import useCartStore from "../useCartStore";
 let carttoken = "";
 const AddToCartBtn = ({ product }) => {
-  console.log(product);
   async function fetchNonce() {
     const response = await fetch(
       "http://ecomm.local/wp-json/myplugin/v1/nonce"
@@ -18,7 +17,6 @@ const AddToCartBtn = ({ product }) => {
       localStorage.setItem("carttoken", "");
     }
     let carttoken = localStorage.getItem("carttoken");
-    console.log(carttoken);
     const nonce = await fetchNonce();
 
     const res = await fetch("http://localhost:3000/api/cart/add", {

@@ -1,7 +1,23 @@
+"use client";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    fetch("http://localhost:3000/api/products/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: {
+        revalidate: 10,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
+
   return (
     <div className="homepage">
       <div className="container vh-100 d-flex flex-column align-items-center justify-content-center">
