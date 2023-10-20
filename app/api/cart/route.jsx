@@ -3,7 +3,6 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import { cookies } from "next/headers";
 
 export async function GET() {
-  let body = {};
   let res = await fetch("http://ecomm.local/wp-json/wc/store/v1/cart", {
     method: "GET",
     headers: {
@@ -13,13 +12,14 @@ export async function GET() {
       revalidate: 1,
     },
   });
+
   if (res.ok) {
-    //if cookies dont exist set cookies
+    let nonce = res.headers.get("nonce");
+    cookies().set("nonce", nonce);
+
     if (!cookies().has("cart-token")) {
       let cartToken = res.headers.get("cart-token");
-      let nonce = res.headers.get("nonce");
       cookies().set("cart-token", cartToken);
-      cookies().set("nonce", nonce);
     }
     return NextResponse.json(res);
   } else {

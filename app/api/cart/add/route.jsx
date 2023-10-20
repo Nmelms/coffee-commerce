@@ -2,21 +2,22 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
 export async function POST(request) {
-  let res = fetch("http://ecomm.local/wc/store/v1/cart/add-item", {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      Nonce: cookies().get("nonce"),
-      "Cart-Token": cookies().get("cart-token"),
-    },
-    body: {
-      id: request.id,
-    },
-  });
-  if (res.ok) {
-    console.log(res);
+  try {
+    let res = await fetch(
+      ` http://ecomm.local/wp-json/wc/store/v1/cart/add-item`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Nonce: cookies().get("nonce").value,
+        },
+        body: JSON.stringify({ id: 30 }),
+      }
+    );
+    let json = await res.json();
+
+    return NextResponse.json(json);
+  } catch {
     return NextResponse.json(res);
-  } else {
-    return NextResponse.json({ message: "there was an error" });
   }
 }

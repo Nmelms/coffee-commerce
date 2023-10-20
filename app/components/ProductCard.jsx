@@ -20,14 +20,14 @@ const ProductCard = ({ product }) => {
             ></Image>
           </div>
           <div className="row d-flex flex-column align-items-center">
-            <p>{name}</p>
+            <p>{product.name}</p>
             <span className="price text-center">${product.price}</span>
             {/* <span className="roast rounded-pill text-center m-3 p-1">
               {roastStr.charAt(0).toUpperCase() + roastStr.slice(1)}
             </span> */}
           </div>
 
-          {/* <AddToCartBtn product={id}>ADD to Cart</AddToCartBtn> */}
+          <AddToCartBtn product={product.id}>ADD to Cart</AddToCartBtn>
         </div>
       </Link>
     </div>

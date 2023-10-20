@@ -6,7 +6,7 @@ const storePage = async () => {
   const response = await fetch("http://localhost:3000/api/products", {
     method: "GET",
     next: {
-      revalidate: 60,
+      revalidate: 1,
     },
   });
   const products = await response.json();

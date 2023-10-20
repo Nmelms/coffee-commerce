@@ -1,46 +1,46 @@
-"use client";
-import { Button } from "react-bootstrap";
-import { useEffect } from "react";
-import { NextResponse } from "next/server";
-const RemoveBtn = ({ num, setCartItems, cartItems }) => {
-  async function fetchNonce() {
-    const response = await fetch(
-      "http://ecomm.local/wp-json/myplugin/v1/nonce"
-    );
-    const data = await response.json();
-    return data.nonce;
-  }
+// "use client";
+// import { Button } from "react-bootstrap";
+// import { useEffect } from "react";
+// import { NextResponse } from "next/server";
+// const RemoveBtn = ({ num, setCartItems, cartItems }) => {
+//   async function fetchNonce() {
+//     const response = await fetch(
+//       "http://ecomm.local/wp-json/myplugin/v1/nonce"
+//     );
+//     const data = await response.json();
+//     return data.nonce;
+//   }
 
-  const handleClick = async () => {
-    let carttoken = localStorage.getItem("carttoken");
-    console.log(num);
-    const nonce = await fetchNonce();
-    let res = fetch(
-      `http://ecomm.local/wp-json/wc/store/v1/cart/remove-item?key=${num}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Nonce: nonce,
-          "Cart-Token": carttoken,
-        },
-      }
-    );
-    let newCart = cartItems.filter((item) => item.key !== num);
-    console.log(newCart);
-    setCartItems(newCart);
+//   const handleClick = async () => {
+//     let carttoken = localStorage.getItem("carttoken");
+//     console.log(num);
+//     const nonce = await fetchNonce();
+//     let res = fetch(
+//       `http://ecomm.local/wp-json/wc/store/v1/cart/remove-item?key=${num}`,
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Nonce: nonce,
+//           "Cart-Token": carttoken,
+//         },
+//       }
+//     );
+//     let newCart = cartItems.filter((item) => item.key !== num);
+//     console.log(newCart);
+//     setCartItems(newCart);
 
-    return NextResponse.json(res);
-  };
-  return (
-    <Button
-      style={{ height: "50px" }}
-      onClick={handleClick}
-      className="btn-danger remove-btn"
-    >
-      X
-    </Button>
-  );
-};
+//     return NextResponse.json(res);
+//   };
+//   return (
+//     <Button
+//       style={{ height: "50px" }}
+//       onClick={handleClick}
+//       className="btn-danger remove-btn"
+//     >
+//       X
+//     </Button>
+//   );
+// };
 
-export default RemoveBtn;
+// export default RemoveBtn;
