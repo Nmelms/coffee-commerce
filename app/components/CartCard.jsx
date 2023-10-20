@@ -26,7 +26,7 @@ const CartCard = ({ item }) => {
         >
           <h4 className="cart-card-name">{item.name}</h4>
 
-          <QuantityCounter id={item.id} quantity={item.quantity} />
+          <QuantityCounter id={item.key} quantity={item.quantity} />
         </Col>
         <Col
           xs={3}
