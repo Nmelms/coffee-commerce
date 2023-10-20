@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
 export async function POST(request) {
+  let req = await request.json();
+  let id = req.id;
   try {
     let res = await fetch(
       ` http://ecomm.local/wp-json/wc/store/v1/cart/add-item`,
@@ -10,8 +12,9 @@ export async function POST(request) {
         headers: {
           "Content-Type": "application/json",
           Nonce: cookies().get("nonce").value,
+          "Cart-Token": cookies().get("cart-token").value,
         },
-        body: JSON.stringify({ id: 30 }),
+        body: JSON.stringify({ id }),
       }
     );
     let json = await res.json();

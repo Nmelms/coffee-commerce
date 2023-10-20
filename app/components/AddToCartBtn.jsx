@@ -8,7 +8,10 @@ const AddToCartBtn = ({ product }) => {
     let res = await fetch("http://localhost:3000/api/cart/add/", {
       method: "POST",
       cache: "no-cache",
-      body: JSON.stringify({ id, quantity: 1 }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
     });
     if (res.ok) {
       return NextResponse.json({ message: "did it" });

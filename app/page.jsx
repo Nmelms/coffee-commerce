@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useEffect } from "react";
-import AddToCartBtn from "./components/AddToCartBtn";
 
 export default function Home() {
   useEffect(() => {
@@ -28,7 +27,6 @@ export default function Home() {
         <Button href="/shop" className="shop-btn">
           SHOP NOW
         </Button>
-        <AddToCartBtn />
       </div>
     </div>
   );
