@@ -22,32 +22,29 @@ const cart = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setData(data));
-    console.log(data);
+      .then((data) => {
+        setData(data);
+        setCartItems(data.items);
+      });
   }, []);
+
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
 
   return (
     <div className="cart container  ">
       <div className="cart-list p-0 container">
-        {/* {data?.map((item) => (
-          <CartCard
-            id={item.id}
-            images={item.images}
-            name={item.name}
-            setCartItems={setCartItems}
-            cartItems={cartItems}
-            num={item.key}
-            quantity={item.quantity}
-            price={priceInDollars(item.prices.price)}
-          />
-        ))} */}
+        {cartItems?.map((item) => (
+          <CartCard item={item} />
+        ))}
       </div>
 
-      <div className="d-flex justify-content-end">
+      {/* <div className="d-flex justify-content-end">
         <span className="order-total">
           Total: {priceInDollars(data.totals?.total_price)}
         </span>
-      </div>
+      </div> */}
 
       {/* <AddressForm orderData={orderData} setOrderData={setOrderData} /> */}
       {/* <CheckoutBtn orderData={orderData}>Proceed to Checout</CheckoutBtn> */}
