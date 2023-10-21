@@ -11,6 +11,7 @@ export async function POST(request) {
       ` http://ecomm.local/wp-json/wc/store/v1/cart/update-item`,
       {
         method: "POST",
+        cache: "no-store",
         headers: {
           "Content-Type": "application/json",
           Nonce: cookies().get("nonce").value,

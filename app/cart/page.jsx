@@ -17,6 +17,7 @@ const cart = () => {
   useEffect(() => {
     fetch("http://localhost:3000/api/cart", {
       method: "GET",
+      cache: "no-cache",
       headers: {
         "Content-Type": "application/json",
       },
@@ -36,7 +37,7 @@ const cart = () => {
     <div className="cart container  ">
       <div className="cart-list p-0 container">
         {cartItems?.map((item) => (
-          <CartCard item={item} />
+          <CartCard setCartItems={setCartItems} item={item} />
         ))}
       </div>
 

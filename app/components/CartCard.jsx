@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import QuantityCounter from "../components/QuantityCounter";
 
-const CartCard = ({ item }) => {
+const CartCard = ({ item, setCartItems }) => {
   const priceInDollars = (price) => price / 100;
   return (
     <Container>
@@ -26,7 +26,11 @@ const CartCard = ({ item }) => {
         >
           <h4 className="cart-card-name">{item.name}</h4>
 
-          <QuantityCounter id={item.key} quantity={item.quantity} />
+          <QuantityCounter
+            setCartItems={setCartItems}
+            id={item.key}
+            quantity={item.quantity}
+          />
         </Col>
         <Col
           xs={3}
