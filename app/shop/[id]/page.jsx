@@ -19,7 +19,6 @@ const fetchProduct = async ({ id }) => {
 
 const ProductPage = async ({ params }) => {
   const product = await fetchProduct(params);
-  console.log();
 
   return (
     <div className="productPage d-flex flex-column  align-items-center space-apart">

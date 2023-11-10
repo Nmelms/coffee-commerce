@@ -7,7 +7,6 @@ export async function GET() {
   let cartToken = cookies().has("cart-token")
     ? cookies().get("cart-token").value
     : "";
-  console.log(nonce, cartToken, "cart token");
   let res = await fetch("http://ecomm.local/wp-json/wc/store/v1/cart", {
     method: "GET",
     cache: "no-cache",
@@ -22,7 +21,6 @@ export async function GET() {
 
   if (res.ok) {
     let nonce = res.headers.get("nonce");
-    console.log(nonce);
     cookies().set("nonce", nonce);
 
     if (!cookies().has("cart-token")) {

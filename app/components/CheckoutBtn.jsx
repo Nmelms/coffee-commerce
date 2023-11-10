@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 let cartToken = localStorage.getItem("carttoken");
 const CheckoutBtn = ({ orderData }) => {
   const [lineItems, setLineItems] = useState([]);
-  // useEffect(() => {
-  //   console.log(lineItems);
-  // }, [lineItems]);
 
   const handleClick = async () => {
     let orderRes = await fetch("api/order", {

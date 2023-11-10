@@ -4,8 +4,7 @@ import { cookies } from "next/headers";
 export async function POST(request) {
   let req = await request.json();
   let key = req.key;
-  let quantity = req.quantity + 1;
-  console.log(key, quantity);
+  let quantity = req.quantity;
   try {
     let res = await fetch(
       ` http://ecomm.local/wp-json/wc/store/v1/cart/update-item`,
@@ -21,7 +20,6 @@ export async function POST(request) {
       }
     );
     let json = await res.json();
-    console.log(json);
 
     return NextResponse.json(json);
   } catch {

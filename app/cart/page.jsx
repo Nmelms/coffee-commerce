@@ -29,10 +29,6 @@ const cart = () => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
-
   return (
     <div className="cart container  ">
       <div className="cart-list p-0 container">

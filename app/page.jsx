@@ -13,9 +13,8 @@ export default function Home() {
       next: {
         revalidate: 10,
       },
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    }).then((res) => res.json());
+    // .then((data) => console.log(data));
   }, []);
 
   return (

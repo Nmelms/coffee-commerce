@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
+import { NextResponse } from "next/server";
 import { useState } from "react";
 import RemoveBtn from "./RemoveBtn";
 import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import QuantityCounter from "../components/QuantityCounter";
+import { useDebouncedCallback } from "use-debounce";
 
 const CartCard = ({ item, setCartItems }) => {
   const priceInDollars = (price) => price / 100;
@@ -12,7 +14,30 @@ const CartCard = ({ item, setCartItems }) => {
     priceInDollars(item.prices.price)
   );
   const [quantity, setQuantity] = useState(item.quantity);
-  console.log(quantity, "in quantity");
+  const updateCartApi = useDebouncedCallback(async (quantity, id) => {
+    try {
+      let res = await fetch("http://localhost:3000/api/cart/update", {
+        method: "POST",
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ key: id, quantity: quantity }),
+      });
+
+      let json = await res.json();
+
+      if (res.ok) {
+        setCartItems(json.items);
+        return NextResponse.json(json);
+      } else {
+        return NextResponse.json({ message: "error" });
+      }
+    } catch (error) {
+      console.error("Error updating cart:", error);
+      // Handle the error appropriately
+    }
+  }, 400);
 
   return (
     <Container>
@@ -39,6 +64,7 @@ const CartCard = ({ item, setCartItems }) => {
             id={item.key}
             quantity={quantity}
             setQuantity={setQuantity}
+            updateCartApi={updateCartApi}
           />
         </Col>
         <Col
