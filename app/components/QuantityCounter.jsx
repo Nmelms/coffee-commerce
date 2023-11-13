@@ -20,9 +20,11 @@ const QuantityCounter = ({
 
   const handleDecrement = () => {
     const newQuantity = quantity - 1;
-    console.log(newQuantity);
-    setQuantity(newQuantity);
-    updateCartApi(newQuantity, id);
+    if (newQuantity > 0) {
+      console.log(newQuantity);
+      setQuantity(newQuantity);
+      updateCartApi(newQuantity, id);
+    }
   };
 
   // const debouncedUpdate = debounce(updateCart, 300);
