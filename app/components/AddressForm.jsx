@@ -2,42 +2,74 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-const AddressForm = ({ orderData, setOrderData }) => {
-  const [billingAddress, setBillingAddress] = useState({
-    address_1: "",
-    city: "",
-    state: "",
-    zipcode: "",
-  });
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setBillingAddress((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
-  };
-  const confirmAddress = () => {
-    setOrderData((prev) => ({
-      ...prev,
-      billing: billingAddress,
-    }));
-  };
+const AddressForm = ({
+  orderData,
+  setOrderData,
+  billingAddress,
+  setBillingAddress,
+  handleChange,
+}) => {
   return (
-    <Form className="address-form">
-      <Form.Group className="mb-3" controlId="address_1">
+    <Form className="address-form container">
+      <div className="row d-flex justify-content-center">
+        <Form.Group className="mb-3 col-4" controlId="firstName">
+          <Form.Control
+            onChange={(e) => handleChange(e)}
+            type="text"
+            placeholder="First Name"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 col-4" controlId="lastName">
+          <Form.Control
+            onChange={(e) => handleChange(e)}
+            type="text"
+            placeholder="Last Name"
+          />
+        </Form.Group>
+      </div>
+      <div className="row d-flex justify-content-center">
+        <Form.Group className="mb-3 col-8" controlId="street">
+          <Form.Control
+            onChange={(e) => handleChange(e)}
+            type="text"
+            placeholder="Street Address"
+          />
+        </Form.Group>
+      </div>
+      <div className="row d-flex justify-content-center">
+        <Form.Group className="mb-3 col-4" controlId="city">
+          <Form.Control
+            onChange={(e) => handleChange(e)}
+            type="text"
+            placeholder="City"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 col-2" controlId="state">
+          <Form.Control
+            onChange={(e) => handleChange(e)}
+            type="text"
+            placeholder="State"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 col-2" controlId="zip">
+          <Form.Control
+            onChange={(e) => handleChange(e)}
+            type="text"
+            placeholder="Zip"
+          />
+        </Form.Group>
+      </div>
+
+      {/* <Form.Group className="mb-3" controlId="address_1">
         <Form.Control
           onChange={(e) => handleChange(e)}
           type="password"
           placeholder="Street Address"
         />
-      </Form.Group>
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
       </Form.Group> */}
-      <Button onClick={confirmAddress} variant="primary">
-        Use this address
-      </Button>
+      {/* <Button onClick={confirmAddress} variant="primary">
+          Use this address
+        </Button> */}
     </Form>
   );
 };
