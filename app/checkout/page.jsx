@@ -26,7 +26,6 @@ const checkout = () => {
       ...prev,
       line_items: arr,
     }));
-    console.log(orderData, "from order data");
   }, [lineitems]);
 
   const fetchLineitems = () => {
@@ -59,6 +58,7 @@ const checkout = () => {
   };
 
   const handleCheckoutClick = async (e) => {
+    console.log(orderData);
     let orderRes = await fetch("api/order", {
       method: "POST",
       headers: {

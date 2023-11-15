@@ -12,14 +12,14 @@ const AddressForm = ({
   return (
     <Form className="address-form container">
       <div className="row d-flex justify-content-center">
-        <Form.Group className="mb-3 col-4" controlId="firstName">
+        <Form.Group className="mb-3 col-4" controlId="first_name">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
             placeholder="First Name"
           />
         </Form.Group>
-        <Form.Group className="mb-3 col-4" controlId="lastName">
+        <Form.Group className="mb-3 col-4" controlId="last_name">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
