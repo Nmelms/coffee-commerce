@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import AddressForm from "../components/AddressForm";
 import CheckoutBtn from "../components/CheckoutBtn";
 import { NextResponse } from "next/server";
+import { Next } from "react-bootstrap/esm/PageItem";
 
 const checkout = () => {
   const [orderData, setOrderData] = useState({ line_items: [], billing: {} });
@@ -57,21 +58,17 @@ const checkout = () => {
     }));
   };
 
-  const handleCheckoutClick = async (e) => {
-    console.log(orderData);
-    let orderRes = await fetch("api/order", {
+  const handleCheckoutClick = (e) => {
+    fetch("api/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        ...orderData,
-      }),
-    });
+      body: JSON.stringify(orderData),
+    })
+      .then((response) => console.log(response))
 
-    if (orderRes.ok) {
-      return NextResponse.json({ message: "it work" });
-    }
+      .catch((error) => console.error(error));
   };
   return (
     <div className="d-flex flex-column justify-content-center align-items-center h-100">
