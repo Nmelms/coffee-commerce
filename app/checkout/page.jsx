@@ -47,15 +47,19 @@ const checkout = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setBillingAddress((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
+    setBillingAddress((prevState) => {
+      const newBillingAddress = {
+        ...prevState,
+        [id]: value,
+      };
 
-    setOrderData((prev) => ({
-      ...prev,
-      billing: billingAddress,
-    }));
+      setOrderData((prevOrderData) => ({
+        ...prevOrderData,
+        billing: newBillingAddress,
+      }));
+
+      return newBillingAddress;
+    });
   };
 
   const handleCheckoutClick = (e) => {

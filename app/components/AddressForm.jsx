@@ -28,7 +28,7 @@ const AddressForm = ({
         </Form.Group>
       </div>
       <div className="row d-flex justify-content-center">
-        <Form.Group className="mb-3 col-8" controlId="street">
+        <Form.Group className="mb-3 col-8" controlId="address_1">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
@@ -51,7 +51,7 @@ const AddressForm = ({
             placeholder="State"
           />
         </Form.Group>
-        <Form.Group className="mb-3 col-2" controlId="zip">
+        <Form.Group className="mb-3 col-2" controlId="postcode">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
