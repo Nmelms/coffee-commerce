@@ -21,7 +21,14 @@ const checkout = () => {
   useEffect(() => {
     let arr = [];
     lineitems.map((item) => {
-      arr.push({ product_id: item.id, quantity: item.quantity });
+      console.log(item);
+      arr.push({
+        product_id: item.id,
+        quantity: item.quantity,
+        name: item.name,
+        img_url: item.images[0].src,
+        price: item.prices.price,
+      });
     });
     setOrderData((prev) => ({
       ...prev,
@@ -80,6 +87,7 @@ const checkout = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(orderData),
     })
       .then((response) => response.json())
       .then((data) => (window.location.href = data))
