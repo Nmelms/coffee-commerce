@@ -63,6 +63,7 @@ const checkout = () => {
   };
 
   const handleCheckoutClick = (e) => {
+    // e.preventDefault();
     fetch("api/order", {
       method: "POST",
       headers: {
@@ -71,8 +72,18 @@ const checkout = () => {
       body: JSON.stringify(orderData),
     })
       .then((response) => console.log(response))
-
       .catch((error) => console.error(error));
+
+    fetch("api/checkout_sessions", {
+      method: "POST",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => (window.location.href = data))
+      .catch(console.log("there was and erre in checkout sessions"));
   };
   return (
     <div className="d-flex flex-column justify-content-center align-items-center h-100">
