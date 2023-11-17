@@ -90,7 +90,10 @@ const checkout = () => {
       body: JSON.stringify(orderData),
     })
       .then((response) => response.json())
-      .then((data) => (window.location.href = data))
+      .then((data) => {
+        window.location.href = data;
+        return NextResponse.json({ message: "from checkout sessions" });
+      })
       .catch(console.log("there was and erre in checkout sessions"));
   };
   return (
