@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   let data = await req.json();
+  console.log(data.woocommerce_id);
 
   let items = [];
   if (data) {
@@ -27,7 +28,17 @@ export async function POST(req) {
     mode: "payment",
     success_url: "http://localhost:3000",
     cancel_url: "http://localhost:3000",
+    metadata: {
+      woocommerce_id: data.woocommerce_id,
+    },
   });
 
-  return NextResponse.json(session.url);
+  // Update the Payment Intent with the metadata
+  // await stripe.paymentIntents.update(paymentIntentId, {
+  //   metadata: {
+  //     woocommerce_id: data.woocommerce_id,
+  //   },
+  // });
+
+  return NextResponse.json(session);
 }

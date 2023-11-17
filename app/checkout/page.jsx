@@ -6,7 +6,11 @@ import { NextResponse } from "next/server";
 import { Next } from "react-bootstrap/esm/PageItem";
 
 const checkout = () => {
-  const [orderData, setOrderData] = useState({ line_items: [], billing: {} });
+  const [orderData, setOrderData] = useState({
+    line_items: [],
+    billing: {},
+    woocommerce_id: "",
+  });
   const [lineitems, setLineItems] = useState([]);
   const [billingAddress, setBillingAddress] = useState({
     address_1: "",
@@ -69,18 +73,8 @@ const checkout = () => {
     });
   };
 
-  const handleCheckoutClick = (e) => {
-    // e.preventDefault();
-    fetch("api/order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(orderData),
-    })
-      .then((response) => console.log(response))
-      .catch((error) => console.error(error));
-
+  useEffect(() => {
+    console.log(orderData.woocommerce_id, "this is the order data woo id");
     fetch("api/checkout_sessions", {
       method: "POST",
       cache: "no-cache",
@@ -91,10 +85,31 @@ const checkout = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        window.location.href = data;
+        window.location.href = data.url;
+        console.log();
         return NextResponse.json({ message: "from checkout sessions" });
       })
       .catch(console.log("there was and erre in checkout sessions"));
+  }, [orderData.woocommerce_id]);
+
+  const handleCheckoutClick = (e) => {
+    // e.preventDefault();
+    fetch("api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setOrderData((prevOrderData) => ({
+          ...prevOrderData,
+          woocommerce_id: data.id,
+        }));
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div className="d-flex flex-column justify-content-center align-items-center h-100">
