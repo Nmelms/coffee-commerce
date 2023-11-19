@@ -3,7 +3,7 @@ import ProductList from "../components/ProductList";
 import MobileFilter from "../components/MobileFilter";
 
 const storePage = async () => {
-  const response = await fetch(`api/products`, {
+  const response = await fetch(`/api/products`, {
     method: "GET",
     next: {
       revalidate: 60,
