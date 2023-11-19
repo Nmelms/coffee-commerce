@@ -4,8 +4,8 @@ import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 
 export default function Home() {
-  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   useEffect(() => {
+    let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
     fetch(`${hostURL}/api/cart/`, {
       method: "GET",
       headers: {

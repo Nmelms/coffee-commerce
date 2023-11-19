@@ -21,7 +21,7 @@ const Checkout = () => {
   });
   useEffect(() => {
     fetchLineitems();
-  }, []);
+  });
 
   useEffect(() => {
     let arr = [];
