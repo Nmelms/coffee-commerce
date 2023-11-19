@@ -2,6 +2,7 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import { cookies } from "next/headers";
 
 export async function GET() {
+  console.log(process.env.API_URL, "this is the api rul");
   const api = new WooCommerceRestApi({
     url: process.env.API_URL,
     consumerKey: process.env.CONSUMER_KEY,

@@ -10,6 +10,7 @@ const storePage = async () => {
     },
   });
   const products = await response.json();
+  console.log(products, "these are products");
 
   return (
     <div className="store">
