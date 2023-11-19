@@ -2,6 +2,7 @@ import Stripe from "stripe";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
+  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   let data = await req.json();
   console.log(data.woocommerce_id);
@@ -26,8 +27,8 @@ export async function POST(req) {
   const session = await stripe.checkout.sessions.create({
     line_items: items,
     mode: "payment",
-    success_url: "http://localhost:3000",
-    cancel_url: "http://localhost:3000",
+    success_url: hostURL,
+    cancel_url: hostURL,
     metadata: {
       woocommerce_id: data.woocommerce_id,
     },

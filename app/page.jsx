@@ -4,8 +4,10 @@ import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 
 export default function Home() {
+  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
+  console.log(hostURL, "this is from page.jsx");
   useEffect(() => {
-    fetch("http://localhost:3000/api/cart/", {
+    fetch(`${hostURL}/api/cart/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

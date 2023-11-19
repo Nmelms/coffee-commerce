@@ -3,9 +3,10 @@ import { NextResponse } from "next/server";
 import useCartStore from "../useCartStore";
 let carttoken = "";
 const AddToCartBtn = ({ product }) => {
+  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const handleClick = async (e, id) => {
     e.preventDefault();
-    let res = await fetch("http://localhost:3000/api/cart/add/", {
+    let res = await fetch(`${hostURL}/api/cart/add/`, {
       method: "POST",
       cache: "no-cache",
       headers: {

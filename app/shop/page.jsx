@@ -3,7 +3,8 @@ import ProductList from "../components/ProductList";
 import MobileFilter from "../components/MobileFilter";
 
 const storePage = async () => {
-  const response = await fetch("http://localhost:3000/api/products", {
+  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
+  const response = await fetch(`${hostURL}/api/products`, {
     method: "GET",
     next: {
       revalidate: 60,

@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 import { Next } from "react-bootstrap/esm/PageItem";
 
 const Checkout = () => {
+  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const [orderData, setOrderData] = useState({
     line_items: [],
     billing: {},
@@ -41,7 +42,7 @@ const Checkout = () => {
   }, [lineitems]);
 
   const fetchLineitems = () => {
-    fetch("http://localhost:3000/api/cart")
+    fetch(`${hostURL}/api/cart`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("nopee");
@@ -85,7 +86,6 @@ const Checkout = () => {
       .then((response) => response.json())
       .then((data) => {
         window.location.href = data.url;
-        console.log();
         return NextResponse.json({ message: "from checkout sessions" });
       })
       .catch(console.log("there was and erre in checkout sessions"));
