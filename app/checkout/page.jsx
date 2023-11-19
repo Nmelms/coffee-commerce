@@ -5,7 +5,7 @@ import CheckoutBtn from "../components/CheckoutBtn";
 import { NextResponse } from "next/server";
 import { Next } from "react-bootstrap/esm/PageItem";
 
-const checkout = () => {
+const Checkout = () => {
   const [orderData, setOrderData] = useState({
     line_items: [],
     billing: {},
@@ -74,7 +74,6 @@ const checkout = () => {
   };
 
   useEffect(() => {
-    console.log(orderData.woocommerce_id, "this is the order data woo id");
     fetch("api/checkout_sessions", {
       method: "POST",
       cache: "no-cache",
@@ -90,6 +89,7 @@ const checkout = () => {
         return NextResponse.json({ message: "from checkout sessions" });
       })
       .catch(console.log("there was and erre in checkout sessions"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderData.woocommerce_id]);
 
   const handleCheckoutClick = (e) => {
@@ -124,4 +124,4 @@ const checkout = () => {
   );
 };
 
-export default checkout;
+export default Checkout;

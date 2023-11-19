@@ -10,7 +10,7 @@ import CheckoutBtn from "../components/CheckoutBtn";
 import { Suspense } from "react";
 import CartCard from "../components/CartCard";
 
-const cart = () => {
+const Cart = () => {
   const [data, setData] = useState({});
 
   const [cartItems, setCartItems] = useState([]);
@@ -34,8 +34,8 @@ const cart = () => {
   return (
     <div className="cart container  ">
       <div className="cart-list p-0 container">
-        {cartItems?.map((item) => (
-          <CartCard setCartItems={setCartItems} item={item} />
+        {cartItems?.map((item, idx) => (
+          <CartCard key={idx} setCartItems={setCartItems} item={item} />
         ))}
       </div>
       {data.totals?.total_price && (
@@ -52,4 +52,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;
