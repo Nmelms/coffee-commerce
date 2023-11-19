@@ -18,7 +18,6 @@ const Cart = () => {
 
   const priceInDollars = (price) => price / 100;
   useEffect(() => {
-    console.log(hostURL);
     fetch(`${hostURL}/api/cart`, {
       method: "GET",
       cache: "no-cache",

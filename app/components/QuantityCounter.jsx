@@ -13,7 +13,6 @@ const QuantityCounter = ({
 }) => {
   const handleIncrement = () => {
     const newQuantity = quantity + 1;
-    console.log(newQuantity);
     setQuantity(newQuantity);
     updateCartApi(newQuantity, id);
   };
@@ -21,7 +20,6 @@ const QuantityCounter = ({
   const handleDecrement = () => {
     const newQuantity = quantity - 1;
     if (newQuantity > 0) {
-      console.log(newQuantity);
       setQuantity(newQuantity);
       updateCartApi(newQuantity, id);
     }

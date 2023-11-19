@@ -27,10 +27,10 @@ export async function POST(res) {
       };
       WooCommerce.put(`orders/${woocommerceOrderId}`, data)
         .then((response) => {
-          console.log(response.data);
+          console.log("log from orders");
         })
         .catch((error) => {
-          console.log(error.response.data);
+          console.log("log from orders");
         });
       return NextResponse.json(response.data);
     } catch (error) {

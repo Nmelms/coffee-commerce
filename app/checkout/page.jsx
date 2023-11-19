@@ -26,7 +26,6 @@ const Checkout = () => {
   useEffect(() => {
     let arr = [];
     lineitems.map((item) => {
-      console.log(item);
       arr.push({
         product_id: item.id,
         quantity: item.quantity,
@@ -75,6 +74,7 @@ const Checkout = () => {
   };
 
   useEffect(() => {
+    console.log(orderData);
     fetch("api/checkout_sessions", {
       method: "POST",
       cache: "no-cache",
@@ -88,7 +88,7 @@ const Checkout = () => {
         window.location.href = data.url;
         return NextResponse.json({ message: "from checkout sessions" });
       })
-      .catch(console.log("there was and erre in checkout sessions"));
+      .catch((error) => console.log(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderData.woocommerce_id]);
 
@@ -103,7 +103,6 @@ const Checkout = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setOrderData((prevOrderData) => ({
           ...prevOrderData,
           woocommerce_id: data.id,

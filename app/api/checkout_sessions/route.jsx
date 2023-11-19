@@ -5,7 +5,6 @@ export async function POST(req) {
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   let data = await req.json();
-  console.log(data.woocommerce_id);
 
   let items = [];
   if (data) {
