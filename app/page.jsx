@@ -5,8 +5,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
-    fetch(`${hostURL}/api/cart/`, {
+    fetch(`/api/cart/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

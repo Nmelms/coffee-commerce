@@ -9,7 +9,6 @@ import QuantityCounter from "../components/QuantityCounter";
 import { useDebouncedCallback } from "use-debounce";
 
 const CartCard = ({ item, setCartItems }) => {
-  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const priceInDollars = (price) => price / 100;
   const [totalPrice, setTotalPrice] = useState(
     priceInDollars(item.prices.price)
@@ -17,7 +16,7 @@ const CartCard = ({ item, setCartItems }) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const updateCartApi = useDebouncedCallback(async (quantity, id) => {
     try {
-      let res = await fetch(`${hostURL}/api/cart/update`, {
+      let res = await fetch(`api/cart/update`, {
         method: "POST",
         cache: "no-cache",
         headers: {

@@ -17,8 +17,7 @@ const Cart = () => {
 
   const priceInDollars = (price) => price / 100;
   useEffect(() => {
-    let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
-    fetch(`${hostURL}/api/cart`, {
+    fetch(`/api/cart`, {
       method: "GET",
       cache: "no-cache",
       headers: {

@@ -6,7 +6,6 @@ import { NextResponse } from "next/server";
 import { Next } from "react-bootstrap/esm/PageItem";
 
 const Checkout = () => {
-  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const [orderData, setOrderData] = useState({
     line_items: [],
     billing: {},
@@ -41,7 +40,7 @@ const Checkout = () => {
   }, [lineitems]);
 
   const fetchLineitems = () => {
-    fetch(`${hostURL}/api/cart`)
+    fetch(`api/cart`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("nopee");
