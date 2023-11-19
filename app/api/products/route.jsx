@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 export async function GET() {
   console.log(process.env.API_URL, "this is the api rul");
   const api = new WooCommerceRestApi({
-    url: process.env.API_URL,
+    url: "https://coffeeapi.nickmelms.dev",
     consumerKey: process.env.CONSUMER_KEY,
     consumerSecret: process.env.CONSUMER_SECRET,
     version: "wc/v3",
