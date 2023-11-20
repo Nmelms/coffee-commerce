@@ -15,7 +15,7 @@ export async function POST(res) {
     const session = event.data.object; // Checkout Session object
     const woocommerceOrderId = session.metadata.woocommerce_id;
     const WooCommerce = new WooCommerceRestApi({
-      url: "http://ecomm.local",
+      url: process.env.API_URL,
       consumerKey: process.env.CONSUMER_KEY,
       consumerSecret: process.env.CONSUMER_SECRET,
       version: "wc/v3",

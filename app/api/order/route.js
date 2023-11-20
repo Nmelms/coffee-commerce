@@ -5,7 +5,7 @@ import { Next } from "react-bootstrap/esm/PageItem";
 
 export async function POST(request) {
   const WooCommerce = new WooCommerceRestApi({
-    url: "http://ecomm.local",
+    url: process.env.API_URL,
     consumerKey: process.env.CONSUMER_KEY,
     consumerSecret: process.env.CONSUMER_SECRET,
     version: "wc/v3",

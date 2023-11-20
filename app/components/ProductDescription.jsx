@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const fetchProduct = async (id) => {
   const api = new WooCommerceRestApi({
-    url: "http://ecomm.local",
+    url: process.env.API_URL,
     consumerKey: process.env.CONSUMER_KEY,
     consumerSecret: process.env.CONSUMER_SECRET,
     version: "wc/v3",
