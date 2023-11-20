@@ -2,11 +2,12 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
 export async function POST(request) {
-  apiURL = process.env.API_URL;
+  let apiURL = process.env.API_URL;
   let req = await request.json();
+  console.log(req, "this is from the requessstttt");
   let id = req.id;
   try {
-    let res = await fetch(` ${apiURL}/wp-json/wc/store/v1/cart/add-item`, {
+    let res = await fetch(`${apiURL}/wp-json/wc/store/v1/cart/add-item`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
