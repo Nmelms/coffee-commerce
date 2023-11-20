@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["ecomm.local", "146.190.41.238"],
+    domains: ["ecomm.local", "coffeeapi.nickmelms.dev", "146.190.41.238"],
   },
   experimental: {
     serverActions: true,
