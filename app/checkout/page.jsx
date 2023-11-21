@@ -74,7 +74,6 @@ const Checkout = () => {
   };
 
   useEffect(() => {
-    console.log(orderData);
     fetch("api/checkout_sessions", {
       method: "POST",
       cache: "no-cache",

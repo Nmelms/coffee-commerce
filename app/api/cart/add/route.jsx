@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 export async function POST(request) {
   let apiURL = process.env.API_URL;
   let req = await request.json();
-  console.log(apiURL, "this is from the requessstttt");
   let id = req.id;
   try {
     let res = await fetch(`${apiURL}/wp-json/wc/store/v1/cart/add-item`, {

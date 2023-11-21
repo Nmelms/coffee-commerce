@@ -3,13 +3,12 @@ import ProductList from "../components/ProductList";
 import MobileFilter from "../components/MobileFilter";
 
 const storePage = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FRONT_URL}/api/products`,
-    {
-      method: "GET",
-      cache: "no-cache",
-    }
-  );
+  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
+  console.log(hostURL);
+  const response = await fetch(`${hostURL}/api/products`, {
+    method: "GET",
+    cache: "no-cache",
+  });
   const products = await response.json();
   console.log(products);
 
