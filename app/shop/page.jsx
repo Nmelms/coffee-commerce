@@ -4,8 +4,7 @@ import MobileFilter from "../components/MobileFilter";
 
 const storePage = async () => {
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
-  console.log(hostURL);
-  const response = await fetch(`${hostURL}/api/products`, {
+  let response = await fetch(`${hostURL}/api/products`, {
     method: "GET",
     cache: "no-cache",
   });
