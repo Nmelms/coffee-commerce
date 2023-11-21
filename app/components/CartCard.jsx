@@ -10,13 +10,14 @@ import { useDebouncedCallback } from "use-debounce";
 
 const CartCard = ({ item, setCartItems }) => {
   const priceInDollars = (price) => price / 100;
+  let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const [totalPrice, setTotalPrice] = useState(
     priceInDollars(item.prices.price)
   );
   const [quantity, setQuantity] = useState(item.quantity);
   const updateCartApi = useDebouncedCallback(async (quantity, id) => {
     try {
-      let res = await fetch(`api/cart/update`, {
+      let res = await fetch(`${hostURL}/api/cart/update`, {
         method: "POST",
         cache: "no-cache",
         headers: {

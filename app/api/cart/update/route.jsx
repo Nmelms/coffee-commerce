@@ -7,7 +7,9 @@ export async function POST(request) {
   let quantity = req.quantity;
   let apiURL = process.env.API_URL;
   try {
-    let res = await fetch(`${apiURL}/wp-json/wc/store/v1/cart`, {
+    console.log(key, quantity);
+    console.log(`${apiURL}/wp-json/wc/store/v1/cart`);
+    let res = await fetch(`${apiURL}/wp-json/wc/store/v1/cart/update-item`, {
       method: "POST",
       cache: "no-store",
       headers: {
@@ -19,8 +21,10 @@ export async function POST(request) {
     });
     let json = await res.json();
 
+    console.log(json);
     return NextResponse.json(json);
   } catch {
+    console.log("didnt");
     return NextResponse.json(res);
   }
 }
