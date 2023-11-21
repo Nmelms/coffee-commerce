@@ -4,7 +4,7 @@ import SideNav from "../components/SideNav";
 import ProductList from "../components/ProductList";
 import MobileFilter from "../components/MobileFilter";
 
-const storePage = () => {
+const StorePage = () => {
   let [products, setProducts] = useState([]);
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
@@ -19,7 +19,7 @@ const storePage = () => {
     })
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [hostURL]);
 
   return (
     <div className="store">
@@ -38,4 +38,4 @@ const storePage = () => {
   );
 };
 
-export default storePage;
+export default StorePage;
