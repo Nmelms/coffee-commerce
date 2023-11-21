@@ -18,8 +18,9 @@ const StorePage = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, [hostURL]);
+      .then((data) => setProducts(data))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className="store">

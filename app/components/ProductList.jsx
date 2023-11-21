@@ -7,7 +7,7 @@ const ProductList = ({ products }) => {
   // const { filters, products } = useFilterStore();
   return (
     <>
-      {products?.map((product, indx) => {
+      {products.map((product, indx) => {
         return <ProductCard product={product} key={indx} />;
       })}
     </>
