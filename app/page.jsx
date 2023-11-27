@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <div className="homepage">
-      <div className="container vh-100 d-flex flex-column align-items-center justify-content-center">
+      <div className="container-fluid home-hero m-0 d-flex flex-column align-items-center justify-content-center">
         <div className="main-title">
           <h1>Enjoy Your Happy Moment With Coffee</h1>
         </div>
@@ -27,6 +27,7 @@ export default function Home() {
           SHOP NOW
         </Button>
       </div>
+      <div class="container">this is the 2nd content</div>
     </div>
   );
 }

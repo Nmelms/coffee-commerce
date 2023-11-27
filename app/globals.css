@@ -96,8 +96,13 @@ a {
   text-decoration: none;
 }
 .homepage {
-  height: 100vh;
-  background-color: gray !important;
+  min-height: 100vh;
+}
+.home-hero {
+  margin-left: 0;
+  margin-right: 0;
+  height: 75vh;
+  width: 100vw;
   background: url("/bg.jpg");
   background-size: cover;
   background-position: center;
@@ -147,11 +152,30 @@ a {
 
 .navBar {
   position: absolute !important;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100vw;
   background-color: transparent;
 }
+
+.navBar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/paper-bg.jpg");
+  background-size: cover;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: -1; /* Ensure the background is behind the text */
+}
+
 .nav-link {
   color: white !important;
 }
