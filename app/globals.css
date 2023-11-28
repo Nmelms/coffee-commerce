@@ -38,6 +38,9 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --dark-brown: #967259;
+  --light-brown: #ece0d1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,12 +84,12 @@
 
 html,
 body {
+  height: fit-content;
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
-  height: 100vh;
   background-position: center;
   background-color: #ece0d1 !important;
 }
@@ -106,6 +109,16 @@ a {
   background: url("/bg.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.home-card {
+  color: #faf9f6;
+  height: fit-content;
+  background-color: #967259;
+}
+.home-card-img {
+  width: 100%;
+  height: auto;
 }
 
 .product-card {
@@ -151,7 +164,7 @@ a {
 }
 
 .navBar {
-  position: absolute !important;
+  position: fixed !important;
   z-index: 2;
   top: 0;
   left: 0;
@@ -191,12 +204,12 @@ a {
   bottom: 25%;
 }
 .shop-btn {
-  background-color: brown !important;
-  border-color: brown !important;
+  background-color: #967259 !important;
+  border-color: #967259 !important;
   width: 150px;
-  height: 50px;
+  height: auto !important;
   position: absolute;
-  bottom: 40%;
+  bottom: 50%;
   right: 10vw;
 }
 .silder-wrapper::before {

@@ -2,11 +2,11 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.css";
-import { Poppins } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
-const poppins = Poppins({
-  weight: ["400", "700"],
+const pd = Playfair_Display({
+  weight: ["400"],
   subsets: ["latin"],
 });
 
@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${inter.className}`}>
+      <body className={`${pd.className} ${inter.className}`}>
         <Navbar />
         {children}
       </body>
