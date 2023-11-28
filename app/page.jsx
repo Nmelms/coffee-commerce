@@ -33,9 +33,9 @@ export default function Home() {
           <HomeCard
             title={"MENU"}
             text={
-              "lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel aucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis ve"
+              "lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel aucibus in ornare quam viverra orci sagittis eu volutpat "
             }
-            img={"/public/card-bg1.jpg"}
+            img={"/card-bg2.jpg"}
           >
             one
           </HomeCard>
@@ -44,7 +44,7 @@ export default function Home() {
             text={
               "eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet"
             }
-            img={"/public/card-bg1.jpg"}
+            img={"/card-bg1.jpg"}
           >
             two
           </HomeCard>
@@ -53,7 +53,7 @@ export default function Home() {
             text={
               "tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras"
             }
-            img={"/public/card-bg1.jpg"}
+            img={"/card-bg3.jpg"}
           >
             three
           </HomeCard>

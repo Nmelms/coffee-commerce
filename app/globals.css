@@ -110,15 +110,29 @@ a {
   background-size: cover;
   background-position: center;
 }
-
+.home-card-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-card-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 .home-card {
   color: #faf9f6;
   height: fit-content;
   background-color: #967259;
+  transition: transform 0.3s ease-in-out;
+}
+.home-card:hover {
+  cursor: pointer;
+  transform: scale(1.06);
 }
 .home-card-img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
 }
 
 .product-card {

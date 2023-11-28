@@ -7,12 +7,12 @@ const HomeCard = ({ img, title, text }) => {
       <div className="home-card h-100  p-4">
         <Image
           className="home-card-img"
-          height={500}
+          height={100}
           width={500}
-          src={"/card-bg1.jpg"}
+          src={img}
           alt={"coffee shop image"}
         ></Image>
-        <h2>{title}</h2>
+        <h2 className="mt-3">{title}</h2>
         <p>{text}</p>
       </div>
     </div>
