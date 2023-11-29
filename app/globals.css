@@ -102,8 +102,12 @@ a {
 }
 .homepage {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .home-hero {
+  max-width: 2000px;
   position: relative;
   margin-left: 0;
   margin-right: 0;
