@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./components/NavBar";
+import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import { Playfair_Display } from "next/font/google";
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       <body className={`${pd.className} ${inter.className}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

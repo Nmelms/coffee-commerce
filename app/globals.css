@@ -40,7 +40,9 @@
   --card-border-rgb: 131, 134, 135;
 
   --dark-brown: #967259;
+  --darker-brown: #694f3e;
   --light-brown: #ece0d1;
+  --text-color: #faf9f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -170,6 +172,25 @@ a {
       background-color: #38220f;
     }
   }
+}
+.footer {
+  text-align: center;
+  min-height: 20vh;
+  background-color: var(--dark-brown);
+  padding: 1rem;
+  color: var(--text-color);
+}
+.contact-submit-btn {
+  background-color: var(--darker-brown) !important;
+  border-color: var(--darker-brown) !important;
+}
+.footer-link:hover {
+  color: black !important;
+}
+.footer-link {
+  text-decoration: none;
+  color: var(--light-brown) !important;
+  margin-top: 1rem;
 }
 
 /* svg styles */
