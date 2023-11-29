@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <div className="footer container">
       <div className="row">
-        <div className="col-12 col-md-6">
+        <div className="col-12 col-md-6 p-5">
           <h3>Contact Us</h3>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -62,7 +62,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-6">
-              <h3>Navigate</h3>
+              <h4>Navigate</h4>
               <ul className="d-flex flex-column justify-content-start">
                 <Link className="text-start footer-link" href="/">
                   Home
