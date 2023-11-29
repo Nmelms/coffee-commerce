@@ -188,6 +188,20 @@ a {
   margin-top: 1rem;
 }
 
+.about-page {
+  margin-top: 10vh;
+  text-align: center;
+  h2 {
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .about-subTitle {
+    color: #cd7f32;
+  }
+}
+
 /* svg styles */
 .custom-shape-divider-bottom-1701138620 {
   position: absolute;
