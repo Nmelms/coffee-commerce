@@ -1,8 +1,12 @@
 "use client";
 import { NextResponse } from "next/server";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 import useCartStore from "../useCartStore";
 let carttoken = "";
+
 const AddToCartBtn = ({ product }) => {
+  const [cartText, setCartText] = useState("Add To Cart");
   const handleClick = async (e, id) => {
     e.preventDefault();
     let res = await fetch(`api/cart/add/`, {
@@ -13,7 +17,16 @@ const AddToCartBtn = ({ product }) => {
       },
       body: JSON.stringify({ id }),
     });
+
+    const changeText = () => {
+      setCartText("Success");
+      setTimeout(() => {
+        setCartText("Add To Cart");
+      }, 700);
+    };
     if (res.ok) {
+      changeText();
+
       return NextResponse.json({ message: "did it" });
     } else {
       return NextResponse.json({ message: "nope" });
@@ -22,7 +35,12 @@ const AddToCartBtn = ({ product }) => {
 
   return (
     <>
-      <button onClick={(e) => handleClick(e, product)}>addToCartBtn</button>
+      <Button
+        className="add-cart-btn rounded-pill "
+        onClick={(e) => handleClick(e, product)}
+      >
+        <span>{cartText}</span>
+      </Button>
     </>
   );
 };

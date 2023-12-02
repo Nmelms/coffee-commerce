@@ -98,7 +98,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .homepage {
   min-height: 100vh;
@@ -205,6 +205,11 @@ a {
   border-bottom: 1px solid black;
 }
 
+.add-cart-btn {
+  min-width: 150px;
+  background-color: var(--darker-brown) !important;
+  border: var(--darker-brown) !important;
+}
 /* svg styles */
 .custom-shape-divider-bottom-1701138620 {
   position: absolute;
