@@ -4,51 +4,76 @@ const aboutPage = () => {
   return (
     <div className="mb-5 container about-page">
       <div className="row">
-        <div className="col-2 d-flex flex-column justify-content-around">
-          <div>
-            <Image
-              height={100}
-              width={100}
-              alt={"coffee leaf"}
-              src={"/coffee-leaf.png"}
-            ></Image>
-            <p>This is some text under the pic</p>
-          </div>
-
-          <Image
-            height={100}
-            width={100}
-            alt={"coffee leaf"}
-            src={"/coffee-leaf.png"}
-          />
-        </div>
-        <div className="col-8 mt-5">
+        <div className="col-12 mt-5">
           <div className="row">
-            <h2>OUR STORY</h2>
-            <span className="about-subTitle my-5">
-              arcu ac tortor dignissim convallis aenean et tortor at risus
-              viverra adipiscing at in tellusco
-            </span>
-            <p className="pt-5">
-              sed turpis tincidunt id aliquet risus feugiat in ante metus dictum
-              at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio
-              euismod lacinia at quis risus sed vulputate odio ut enim blandit
-              volutpat maecenas volutpat blandit aliquam etiam erat velit
-              scelerisque in dictum non consectetur a erat nam at lectus urna
-              duis convallis convallis tellus id interdum velit laoreet id donec
-              ultrices tincidunt arcu non sodales neque sodales ut etiam sit
-              amet nisl purus in mollis nunc sed id semper risus in hendrerit
-              gravida rutrum quisque non tellus orci ac auctor augue mauris
-              augue neque gravida in fermentum et sollicitudin ac orci phasellus
-              egestas tellus rutrum tellus pellentesque eu tincidunt tortor
-              aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh
-              ipsum consequat nisl vel pretium lectus quam id leo in vitae
-              turpis massa sed elementum tempus egestas sed sed risus pretium
-              quam vulputate dignissim suspendisse in est ante
-            </p>
+            <div className="col-12 col-lg-6  order-lg-2">
+              <h2>OUR STORY</h2>
+              <span className="about-subTitle my-5">
+                arcu ac tortor dignissim convallis aenean et tortor at risus
+                viverra adipiscing at in tellusco
+              </span>
+              <p className="pt-5">
+                sed turpis tincidunt id aliquet risus feugiat in ante metus
+                dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu
+                non odio euismod lacinia at quis risus sed vulputate odio ut
+                enim blandit volutpat maecenas volutpat blandit aliquam etiam
+                erat velit scelerisque in dictum non consectetur a erat nam at
+                lectus urna duis convallis convallis tellus id interdum velit
+                laoreet id donec ultrices tincidunt arcu non sodales neque
+                sodales ut etiam sit amet nisl purus in mollis nunc sed id
+                semper risus in hendrerit gravida rutrum quisque non tellus orci
+                ac auctor augue mauris augue neque gravida in fermentum et
+                sollicitudin ac orci phasellus egestas tellus rutrum tellus
+                pellentesque eu tincidunt tortor aliquam nulla facilisi cras
+                fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel
+                pretium lectus quam id leo in vitae turpis massa sed elementum
+                tempus egestas sed sed risus pretium quam vulputate dignissim
+                suspendisse in est ante
+              </p>
+            </div>
+            <div className="col-12 col-lg-3 d-flex justify-content-around align-items-lg-center order-lg-3 flex-lg-column">
+              <div className="col-6">
+                <Image
+                  height={100}
+                  width={100}
+                  alt={"coffee leaf"}
+                  src={"/coffee-leaf.png"}
+                ></Image>
+                <p>This is some text under the pic</p>
+              </div>
+              <div className="col-6">
+                <Image
+                  height={100}
+                  width={100}
+                  alt={"coffee leaf"}
+                  src={"/coffee-leaf.png"}
+                />
+                <p>test under image</p>
+              </div>
+            </div>
+            <div className="col-12 col-lg-3  d-flex justify-content-around align-items-lg-center order-lg-1 flex-lg-column">
+              <div className="col-6">
+                <Image
+                  height={100}
+                  width={100}
+                  alt={"coffee leaf"}
+                  src={"/coffee-leaf.png"}
+                />
+                <p>test under image</p>
+              </div>
+              <div className="col-6">
+                <Image
+                  height={100}
+                  width={100}
+                  alt={"coffee leaf"}
+                  src={"/coffee-leaf.png"}
+                />
+                <p>test under image</p>
+              </div>
+            </div>
           </div>
           <div className="row mt-5 d-flex">
-            <div className="col-6 d-flex justify-content-between flex-column border-end border-dark">
+            <div className="col-12 col-lg-6 d-flex justify-content-between flex-column bottom-about-border pb-5 pb-lg-0">
               <h3>proin nibh nisl condimentum id venenatis amet est</h3>
               <p>
                 nam at lectus urna duis convallis convallis tellus id interdum
@@ -61,7 +86,7 @@ const aboutPage = () => {
                 fermentum odio
               </p>
             </div>
-            <div className="col-6 d-flex justify-content-between flex-column">
+            <div className="col-12 col-lg-6 d-flex justify-content-between flex-column mt-5 mt-lg-0">
               <h3>turpis massa tincidunt dui ut ornare lectus sit </h3>
               <p>
                 purus non enim praesent elementum facilisis leo vel fringilla
@@ -75,21 +100,6 @@ const aboutPage = () => {
               </p>
             </div>
           </div>
-        </div>
-        <div className="col-2 d-flex flex-column justify-content-around">
-          {" "}
-          <Image
-            height={100}
-            width={100}
-            alt={"coffee leaf"}
-            src={"/coffee-leaf.png"}
-          />
-          <Image
-            height={100}
-            width={100}
-            alt={"coffee leaf"}
-            src={"/coffee-leaf.png"}
-          />
         </div>
       </div>
     </div>

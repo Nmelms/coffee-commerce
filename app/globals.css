@@ -201,6 +201,9 @@ a {
     color: #cd7f32;
   }
 }
+.bottom-about-border {
+  border-bottom: 1px solid black;
+}
 
 /* svg styles */
 .custom-shape-divider-bottom-1701138620 {
@@ -367,6 +370,10 @@ a {
     width: 300px;
     height: 100px;
     font-size: 30px !important;
+  }
+  .bottom-about-border {
+    border-bottom: none;
+    border-right: 1px solid black;
   }
 }
 
