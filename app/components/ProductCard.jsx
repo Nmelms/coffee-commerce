@@ -7,7 +7,7 @@ import Link from "next/link";
 const ProductCard = ({ product }) => {
   let roastStr = product.roast;
   return (
-    <div className="col-6 col-lg-4">
+    <div className="col-12 col-sm-6 col-lg-4">
       <Link href={`/shop/${product.id}`}>
         <div className={`${product.roast} d-flex m-2 border product-card `}>
           <div className="row h-50">
