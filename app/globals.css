@@ -97,7 +97,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: inherit !important;
   text-decoration: none !important;
 }
 .homepage {
@@ -284,6 +284,7 @@ a {
 }
 .store {
   margin-top: 10vh;
+  margin-bottom: 75px;
 }
 
 .sideNav {
