@@ -6,8 +6,6 @@ import HomeCard from "./components/HomeCard";
 import useCartNumber from "./useCartNumber";
 
 export default function Home() {
-  const { setItemCount } = useCartNumber();
-
   useEffect(() => {
     fetch(`/api/cart/`, {
       method: "GET",
@@ -17,9 +15,8 @@ export default function Home() {
       next: {
         revalidate: 10,
       },
-    })
-      .then((res) => res.json())
-      .then((data) => setItemCount(data.items_count));
+    }).then((res) => res.json());
+    // .then((data) => setItemCount(data.items_count));
   }, []);
 
   return (
