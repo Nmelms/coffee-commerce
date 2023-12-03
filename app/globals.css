@@ -145,27 +145,16 @@ a {
     width: auto;
   }
 }
-.product-card {
-  color: black;
-  font-weight: bold;
-  .roast {
-    color: white;
-    width: 100px;
-  }
+.coffee-roast {
+  color: white;
   &.light {
-    .roast {
-      background-color: #967259;
-    }
+    background-color: #967259;
   }
   &.medium {
-    .roast {
-      background-color: #634832;
-    }
+    background-color: #634832;
   }
   &.dark {
-    .roast {
-      background-color: #38220f;
-    }
+    background-color: #38220f;
   }
 }
 .footer {

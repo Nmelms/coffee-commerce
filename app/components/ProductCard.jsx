@@ -9,7 +9,9 @@ const ProductCard = ({ product }) => {
   return (
     <div className="col-12 col-sm-6 col-lg-4">
       <Link href={`/shop/${product.id}`}>
-        <div className={`${product.roast} d-flex m-2 border product-card `}>
+        <div
+          className={` d-flex m-2 border product-card justify-content-around `}
+        >
           <div className="row h-50">
             <Image
               className="product-img"
@@ -18,6 +20,11 @@ const ProductCard = ({ product }) => {
               src={product.images[0].src}
               alt="product image"
             ></Image>
+          </div>
+          <div
+            className={`coffee-roast ${product.acf.coffee_roast} row rounded-pill p-1`}
+          >
+            <span>{product.acf.coffee_roast}</span>
           </div>
           <div className="row d-flex flex-column align-items-center">
             <p>{product.name}</p>

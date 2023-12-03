@@ -36,7 +36,7 @@ const AddToCartBtn = ({ product }) => {
   return (
     <>
       <Button
-        className="add-cart-btn rounded-pill "
+        className="add-cart-btn rounded-pill mb-3 "
         onClick={(e) => handleClick(e, product)}
       >
         <span>{cartText}</span>
