@@ -7,7 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import useCartNumber from "../useCartNumber";
 const NavBar = () => {
+  const { itemCount } = useCartNumber();
   return (
     <Navbar expand="lg" className="navBar">
       <Container>
@@ -31,6 +33,7 @@ const NavBar = () => {
             </Link>
             <Link className="nav-link" href="/cart ">
               <FontAwesomeIcon icon={faShoppingCart} />
+              {itemCount > 0 && itemCount}
             </Link>
           </Nav>
         </Navbar.Collapse>

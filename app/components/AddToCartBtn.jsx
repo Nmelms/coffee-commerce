@@ -3,11 +3,13 @@ import { NextResponse } from "next/server";
 import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import useCartStore from "../useCartStore";
+import useCartNumber from "../useCartNumber";
 let carttoken = "";
 
 const AddToCartBtn = ({ product }) => {
   const [cartText, setCartText] = useState("Add To Cart");
   const [cart, setCart] = useState([]);
+  const { addToCart, itemCount, resetCart } = useCartNumber();
 
   const changeText = (text) => {
     setCartText(text);
@@ -31,6 +33,7 @@ const AddToCartBtn = ({ product }) => {
   }, []);
 
   const handleClick = async (e, id) => {
+    console.log(itemCount);
     e.preventDefault();
     const itemIndex = cart.findIndex((item) => item.id === id);
     //if item exsits add one to cart else add new item
@@ -54,6 +57,7 @@ const AddToCartBtn = ({ product }) => {
         };
         setCart(updatedCart);
         changeText("Success");
+        addToCart();
         return NextResponse.json(res);
       } else {
         changeText("Error, Try Again");
@@ -71,6 +75,7 @@ const AddToCartBtn = ({ product }) => {
 
       if (res.ok) {
         changeText("Success");
+        addToCart();
         return NextResponse.json(res);
       } else {
         changeText("Error, Try Again");
