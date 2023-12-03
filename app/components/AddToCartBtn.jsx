@@ -9,8 +9,8 @@ const AddToCartBtn = ({ product }) => {
   const [cartText, setCartText] = useState("Add To Cart");
   const [cart, setCart] = useState([]);
 
-  const changeText = () => {
-    setCartText("Success");
+  const changeText = (text) => {
+    setCartText(text);
     setTimeout(() => {
       setCartText("Add To Cart");
     }, 700);
@@ -33,7 +33,7 @@ const AddToCartBtn = ({ product }) => {
   const handleClick = async (e, id) => {
     e.preventDefault();
     const itemIndex = cart.findIndex((item) => item.id === id);
-
+    //if item exsits add one to cart else add new item
     if (itemIndex !== -1) {
       const res = await fetch(`api/cart/update/`, {
         method: "POST",
@@ -53,13 +53,13 @@ const AddToCartBtn = ({ product }) => {
           quantity: updatedCart[itemIndex].quantity + 1,
         };
         setCart(updatedCart);
-        changeText();
+        changeText("Success");
         return NextResponse.json(res);
       } else {
+        changeText("Error, Try Again");
         return NextResponse.json(res);
       }
     } else {
-      // Item does not exist in cart, add it
       const res = await fetch(`api/cart/add/`, {
         method: "POST",
         cache: "no-cache",
@@ -70,10 +70,10 @@ const AddToCartBtn = ({ product }) => {
       });
 
       if (res.ok) {
-        changeText();
-        // Handle response appropriately here
+        changeText("Success");
         return NextResponse.json(res);
       } else {
+        changeText("Error, Try Again");
         return NextResponse.json(res);
       }
     }

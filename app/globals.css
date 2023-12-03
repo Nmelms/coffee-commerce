@@ -132,9 +132,12 @@ a {
   height: 200px;
   object-fit: cover;
 }
-
+.product-card-link-wrapper {
+  max-width: 300px;
+}
 .product-card {
-  display: flex;
+  max-width: 300px;
+
   flex-direction: column;
   align-items: center;
   background-color: #dbc1ac;

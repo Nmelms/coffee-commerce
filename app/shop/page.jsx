@@ -32,7 +32,7 @@ const StorePage = () => {
             <SideNav data={proudctData} />
             <MobileFilter data={proudctData} />
           </div> */}
-          <div className="col-12 flex-wrap container border d-flex  ">
+          <div className="col-12 flex-wrap container border d-flex justify-content-center  ">
             <ProductList products={products}></ProductList>
           </div>
         </div>
