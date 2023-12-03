@@ -3,8 +3,11 @@ import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 import HomeCard from "./components/HomeCard";
+import useCartNumber from "./useCartNumber";
 
 export default function Home() {
+  const { setItemCount } = useCartNumber();
+
   useEffect(() => {
     fetch(`/api/cart/`, {
       method: "GET",
@@ -14,8 +17,9 @@ export default function Home() {
       next: {
         revalidate: 10,
       },
-    }).then((res) => res.json());
-    // .then((data) => console.log(data));
+    })
+      .then((res) => res.json())
+      .then((data) => setItemCount(data.items_count));
   }, []);
 
   return (
