@@ -90,11 +90,11 @@ const CartCard = ({ item, setCartItems }) => {
           lg={2}
           className="d-flex justify-content-end align-items-center"
         >
-          {/* <RemoveBtn
+          <RemoveBtn
             setCartItems={setCartItems}
-            cartItems={cartItems}
-            num={num}
-          /> */}
+            // cartItems={cartItems}
+            item={item}
+          />
         </Col>
       </Row>
     </Container>

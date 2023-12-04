@@ -12,7 +12,6 @@ import CartCard from "../components/CartCard";
 
 const Cart = () => {
   const [data, setData] = useState({});
-
   const [cartItems, setCartItems] = useState([]);
 
   const priceInDollars = (price) => price / 100;
@@ -34,8 +33,8 @@ const Cart = () => {
   return (
     <div className="cart container  ">
       <div className="cart-list p-0 container">
-        {cartItems?.map((item, idx) => (
-          <CartCard key={idx} setCartItems={setCartItems} item={item} />
+        {cartItems?.map((item) => (
+          <CartCard key={item.key} setCartItems={setCartItems} item={item} />
         ))}
       </div>
       {data.totals?.total_price && (
