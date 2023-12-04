@@ -13,7 +13,11 @@ const CartCount = () => {
     }
   }, []);
 
-  return <div className="cart-count">{itemCount > 0 && itemCount}</div>;
+  return (
+    <div className="cart-count rounded-circle badge bg-danger d-flex align-items-center justify-content-center ms-1">
+      {itemCount > 0 && itemCount}
+    </div>
+  );
 };
 
 export default CartCount;

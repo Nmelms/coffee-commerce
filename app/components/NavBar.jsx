@@ -31,7 +31,7 @@ const NavBar = () => {
             <Link className="nav-link" href="/shop">
               Shop
             </Link>
-            <Link className="nav-link" href="/cart ">
+            <Link className="nav-link d-flex align-items-center" href="/cart ">
               <FontAwesomeIcon icon={faShoppingCart} />
               <CartCount />
             </Link>
