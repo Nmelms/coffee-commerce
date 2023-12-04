@@ -7,8 +7,10 @@ import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import QuantityCounter from "../components/QuantityCounter";
 import { useDebouncedCallback } from "use-debounce";
+import useCartNumber from "../useCartNumber";
 
 const CartCard = ({ item, setCartItems }) => {
+  const { addToCart } = useCartNumber();
   const priceInDollars = (price) => price / 100;
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const [totalPrice, setTotalPrice] = useState(
@@ -29,6 +31,7 @@ const CartCard = ({ item, setCartItems }) => {
       let json = await res.json();
 
       if (res.ok) {
+        addToCart();
         setCartItems(json.items);
         return NextResponse.json(json);
       } else {
