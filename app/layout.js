@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.css";
-import { Merriweather } from "next/font/google";
+import { Marcellus } from "next/font/google";
 
-const pd = Merriweather({
+const pd = Marcellus({
   weight: ["400"],
   subsets: ["latin"],
 });

@@ -43,6 +43,7 @@
   --darker-brown: #694f3e;
   --light-brown: #ece0d1;
   --text-color: #faf9f6;
+  --gold: #c7a17a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,7 +112,7 @@ a {
   position: relative;
   margin-left: 0;
   margin-right: 0;
-  height: 85vh;
+  height: 95vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
@@ -279,19 +280,25 @@ a {
 }
 .main-title {
   position: relative;
-  font-size: 40px;
   text-align: center;
   color: white;
-  bottom: 25%;
+  h1 {
+    font-size: 70px;
+    font-weight: 700;
+    color: var(--gold);
+  }
 }
 .shop-btn {
-  background-color: #967259 !important;
-  border-color: #967259 !important;
+  background-color: transparent !important;
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
   width: 150px;
   height: auto !important;
-  position: absolute;
-  bottom: 50%;
-  right: 10vw;
+  transition: all 0.5s ease;
+}
+.shop-btn:hover {
+  color: white !important;
+  background-color: var(--gold) !important;
 }
 .silder-wrapper::before {
   content: "";
