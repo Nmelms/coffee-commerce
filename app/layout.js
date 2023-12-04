@@ -3,10 +3,9 @@ import { Inter } from "next/font/google";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.css";
-import { Playfair_Display } from "next/font/google";
+import { Merriweather } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
-const pd = Playfair_Display({
+const pd = Merriweather({
   weight: ["400"],
   subsets: ["latin"],
 });
@@ -19,8 +18,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${pd.className} ${inter.className}`}>
-        <Navbar />
+      <body className={`${pd.className}`}>
+        {/* <Navbar /> */}
         {children}
         <Footer />
       </body>
