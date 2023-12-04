@@ -10,7 +10,7 @@ import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 
 const CartCard = ({ item, setCartItems }) => {
-  const { addToCart } = useCartNumber();
+  const { setItemCount } = useCartNumber();
   const priceInDollars = (price) => price / 100;
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
   const [totalPrice, setTotalPrice] = useState(
@@ -31,7 +31,7 @@ const CartCard = ({ item, setCartItems }) => {
       let json = await res.json();
 
       if (res.ok) {
-        addToCart();
+        setItemCount(json.items_count);
         setCartItems(json.items);
         return NextResponse.json(json);
       } else {
