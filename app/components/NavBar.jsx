@@ -11,15 +11,16 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
   return (
-    <Navbar expand="lg" className="navBar">
+    <Navbar expand="lg" className="navBar" data-bs-theme="light">
       <Container>
         <Image
-          src="/coffeeLogo.svg"
-          width="150"
-          height="100"
+          className="coffee-logo"
+          src="/coffeeLogo.webp"
+          width="50"
+          height="50"
           alt="coffee logo"
         />
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav nav-toggle" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Link className="nav-link" href="/">
@@ -32,7 +33,7 @@ const NavBar = () => {
               Shop
             </Link>
             <Link className="nav-link d-flex align-items-center" href="/cart ">
-              <FontAwesomeIcon icon={faShoppingCart} />
+              <FontAwesomeIcon className="cart-icon" icon={faShoppingCart} />
               <CartCount />
             </Link>
           </Nav>

@@ -44,6 +44,7 @@
   --light-brown: #ece0d1;
   --text-color: #faf9f6;
   --gold: #c7a17a;
+  --dark-bg: #282828;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -94,7 +95,6 @@ body {
 
 body {
   background-position: center;
-  background-color: #ece0d1 !important;
 }
 
 a {
@@ -102,17 +102,20 @@ a {
   text-decoration: none !important;
 }
 .homepage {
+  max-width: 2000px;
   min-height: 100vh;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 }
 .home-hero {
   max-width: 2000px;
   position: relative;
   margin-left: 0;
   margin-right: 0;
-  height: 95vh;
+  height: 50vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
@@ -243,29 +246,24 @@ a {
   top: 0;
   left: 0;
   width: 100vw;
-  background-color: transparent;
+  background-color: var(--dark-bg);
 }
-
-.navBar::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("/paper-bg.jpg");
-  background-size: cover;
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 40%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  z-index: -1; /* Ensure the background is behind the text */
+.nav-toggle {
+  color: var(--gold) !important;
+}
+.coffee-logo {
+  text-align: center;
+  margin: 0 auto;
+  height: 50px !important;
+  width: auto !important;
 }
 
 .nav-link {
   color: white !important;
   position: relative;
+}
+.cart-icon {
+  color: var(--gold);
 }
 .cart-count {
   width: 20px;
@@ -283,7 +281,7 @@ a {
   text-align: center;
   color: white;
   h1 {
-    font-size: 70px;
+    font-size: 40px;
     font-weight: 700;
     color: var(--gold);
   }
@@ -317,6 +315,24 @@ a {
 }
 .offcanvas-body .sideNav {
   display: block;
+}
+.home-quote {
+  background-image: url("/quote-bg.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+
+  font-size: clamp(25px, 5vw, 48px);
+  text-align: center;
+}
+.quote-txt {
+  margin: 0 auto;
+  display: block;
+  max-width: 800px;
+}
+.home-section3 {
+  background-image: url("/home-brown-bg.webp");
+  min-height: 50vh;
 }
 
 /* PRODUCT PAGE */
@@ -379,6 +395,17 @@ a {
   .mobileFilter {
     display: none;
   }
+  .main-title {
+    h1 {
+      font-size: 60px;
+    }
+  }
+  .home-hero {
+    height: 75vh;
+  }
+  .coffee-logo {
+    height: 75px !important;
+  }
 
   /* your styles here */
 }
@@ -393,6 +420,14 @@ a {
   .bottom-about-border {
     border-bottom: none;
     border-right: 1px solid black;
+  }
+  .main-title {
+    h1 {
+      font-size: 70px;
+    }
+  }
+  .home-hero {
+    height: 100vh;
   }
 }
 

@@ -29,7 +29,17 @@ export default function Home() {
           SHOP NOW
         </Button>
       </div>
-      <div className="container">
+      <section className="container-fluid">
+        <div className="home-quote p-5">
+          <span className="quote-txt">
+            vitae tempus quam pellentesque nec nam aliquam sem et tortor
+            consequat id porta nibh venenatis cras sed felis eget velit aliquet
+            sagittis id consectetur
+          </span>
+        </div>
+      </section>
+      <section className="container-fluid home-section3"></section>
+      {/* <div className="container">
         <div className="row home-card-row d-flex aligin-items-center my-5 ">
           <HomeCard
             title={"MENU"}
@@ -59,7 +69,7 @@ export default function Home() {
             three
           </HomeCard>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
