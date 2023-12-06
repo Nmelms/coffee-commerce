@@ -174,9 +174,8 @@ a {
 .footer {
   text-align: center;
   min-height: 20vh;
-  background-color: var(--dark-brown);
   padding: 1rem;
-  color: var(--text-color);
+  color: var(--darker-brown);
 }
 .contact-submit-btn {
   background-color: var(--darker-brown) !important;
