@@ -346,6 +346,10 @@ a {
   font-size: 24px;
   color: var(--gold);
 }
+.section3-card-img {
+  height: auto;
+  max-width: 150px !important;
+}
 .home-section-store-link {
   color: var(--gold) !important;
   font-size: 24px;
