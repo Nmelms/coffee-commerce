@@ -45,6 +45,7 @@
   --text-color: #faf9f6;
   --gold: #c7a17a;
   --dark-bg: #282828;
+  --darkbg-font-color: #c3bdb2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -333,8 +334,29 @@ a {
 .home-section3 {
   background-image: url("/home-brown-bg.webp");
   min-height: 50vh;
+  color: var(--darkbg-font-color);
 }
-
+.section3-img {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+.section3-card-title {
+  font-size: 24px;
+  color: var(--gold);
+}
+.home-section-store-link {
+  color: var(--gold) !important;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+.home-section-store-link:hover {
+  color: white !important;
+}
+.store-title {
+  font-size: 18px;
+}
 /* PRODUCT PAGE */
 
 .productPage {

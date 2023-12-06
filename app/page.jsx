@@ -4,6 +4,8 @@ import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 import HomeCard from "./components/HomeCard";
 import useCartNumber from "./useCartNumber";
+import Link from "next/link";
+import Section3Card from "./components/Section3Card";
 
 export default function Home() {
   useEffect(() => {
@@ -38,38 +40,49 @@ export default function Home() {
           </span>
         </div>
       </section>
-      <section className="container-fluid home-section3"></section>
-      {/* <div className="container">
-        <div className="row home-card-row d-flex aligin-items-center my-5 ">
-          <HomeCard
-            title={"MENU"}
-            text={
-              "lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel aucibus in ornare quam viverra orci sagittis eu volutpat "
-            }
-            img={"/card-bg2.jpg"}
-          >
-            one
-          </HomeCard>
-          <HomeCard
-            title={"OUR STORY"}
-            text={
-              "eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet"
-            }
-            img={"/card-bg1.jpg"}
-          >
-            two
-          </HomeCard>
-          <HomeCard
-            title={"SHOP COFEE"}
-            text={
-              "tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras"
-            }
-            img={"/card-bg3.jpg"}
-          >
-            three
-          </HomeCard>
-        </div>
-      </div> */}
+      <section className="container-fluid home-section3 d-flex  flex-column ">
+        <Image
+          className="section3-img"
+          src="/worker1.webp"
+          width={500}
+          height={500}
+        ></Image>
+        <span className="store-title mt-4">Online Store</span>
+        <Link className="home-section-store-link" href="/shop">
+          Fresh Coffee, Refresh Memories
+        </Link>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+          suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+          lacus vel facilisis.
+        </p>
+        <Button href="/shop" className="shop-btn rounded-pill">
+          SHOP NOW
+        </Button>
+        <Section3Card
+          src={"/cup1.avif"}
+          title={"Dried Pure Instant Coffee"}
+          text={
+            "Habitant morbi tristict sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+        <Section3Card
+          src={"/cup2.avif"}
+          title={"Roasted & Grounded Coffee"}
+          text={
+            "Habitant morbi tristict sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+        <Section3Card
+          src={"/cup3.avif"}
+          title={"Rich Aroma Instant Coffee"}
+          text={
+            "Habitant morbi tristict sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+      </section>
     </div>
   );
 }
