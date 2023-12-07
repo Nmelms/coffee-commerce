@@ -26,7 +26,9 @@ const StorePage = () => {
     <div className="store">
       <div className="container">
         <div className="row">
-          <h2 className="d-flex justify-content-center my-5">OUR COFFEE</h2>
+          <h2 className="d-flex justify-content-center align-items-center store-hero ">
+            OUR COFFEE
+          </h2>
           {/* for the future filter feature */}
           {/* <div className="col-md-3 position-relative">
             <SideNav data={proudctData} />

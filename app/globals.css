@@ -305,7 +305,7 @@ a {
   width: 50px;
 }
 .store {
-  margin-top: 10vh;
+  margin-top: 8vh;
   margin-bottom: 75px;
 }
 
@@ -367,6 +367,15 @@ a {
 .menu-title {
   font-size: 50px;
   color: var(--gold);
+}
+.store-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/home-hero.jpg") center center / cover no-repeat;
+  height: 20vh;
+  margin-top: 8vh;
+  background-position: center;
+  background-size: cover;
+  color: white;
 }
 
 /* PRODUCT PAGE */
