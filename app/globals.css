@@ -360,6 +360,15 @@ a {
 .store-title {
   font-size: 18px;
 }
+.home-menu {
+  background-color: black;
+  color: var(--gold);
+}
+.menu-title {
+  font-size: 50px;
+  color: var(--gold);
+}
+
 /* PRODUCT PAGE */
 
 .productPage {

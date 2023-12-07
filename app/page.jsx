@@ -40,7 +40,7 @@ export default function Home() {
           </span>
         </div>
       </section>
-      <section className="container-fluid home-section3  px-md-4">
+      <section className="container-fluid home-section3  px-md-5">
         <div className="row pb-lg-4">
           <div className="col-lg-6 d-flex flex-column">
             <Image
@@ -86,6 +86,60 @@ export default function Home() {
                 "Habitant morbi tristict sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
               }
             />
+          </div>
+        </div>
+      </section>
+      <section className="home-menu container-fluid d-flex flex-column align-items-center pt-5">
+        <Image width={100} height={100} src="/beans.avif"></Image>
+        <span className="menu-title">OUR COFFEE MENU</span>
+        <div className="row w-100">
+          <div className="col-12 col-lg-6 text-center d-flex flex-column">
+            <span>Coffee</span>
+
+            <p>Roasted cofee.......$1.00</p>
+
+            <p>Roasted cofee.......$1.00</p>
+
+            <p>Roasted cofee.......$1.00</p>
+
+            <p>Roasted cofee.......$1.00</p>
+
+            <p>Roasted cofee.......$1.00</p>
+
+            <p>Roasted cofee.......$1.00</p>
+          </div>
+          <div className="col-12 col-lg-6 text-center d-flex flex-column">
+            <span>TEA</span>
+
+            <p>Roasted tea.......$1.00</p>
+
+            <p>Roasted tea.......$1.00</p>
+
+            <p>Roasted tea.......$1.00</p>
+
+            <p>Roasted tea.......$1.00</p>
+
+            <p>Roasted tea.......$1.00</p>
+
+            <p>Roasted tea.......$1.00</p>
+          </div>
+        </div>
+        <div className="row w-100">
+          <div className="col-12 col-lg-6 text-center">
+            <span>Espress</span>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
+          </div>
+          <div className="col-12 col-lg-6 text-center">
+            <span>MILKS</span>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
+            <p>XTRA STRONG........$1.00</p>
           </div>
         </div>
       </section>
