@@ -169,6 +169,7 @@ a {
 }
 
 .img-overlay:hover {
+  cursor: pointer;
   z-index: 10;
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.5);
@@ -204,6 +205,16 @@ a {
 .product-name {
   color: var(--gray-font-color);
   font-size: 24px;
+}
+.mag-wrapper {
+  width: 50px; /* Diameter of the circle */
+  height: 50px; /* Diameter of the circle */
+  border-radius: 50%; /* Makes the background circular */
+  background-color: white;
+  transition: all 0.3s ease;
+}
+.mag-wrapper:hover {
+  background-color: var(--darker-brown);
 }
 
 .coffee-roast {

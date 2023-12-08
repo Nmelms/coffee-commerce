@@ -3,6 +3,9 @@ import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import AddToCartBtn from "./AddToCartBtn";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
@@ -22,7 +25,16 @@ const ProductCard = ({ product }) => {
           src={product.images[0].src}
           alt="product image"
         />
-        <div className="img-overlay d-flex justify-content-center align-items-center"></div>
+        <div className="img-overlay ">
+          <a
+            className="h-100 w-100 d-flex justify-content-center align-items-center"
+            href={`/product/${product.id}`}
+          >
+            <div className="mag-wrapper d-flex justify-content-center align-items-center">
+              <FontAwesomeIcon color={"black"} icon={faSearch} />
+            </div>
+          </a>
+        </div>
       </div>
       <div
         className={`product-bottom pt-4 d-flex flex-column align-items-center ${
