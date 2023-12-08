@@ -24,7 +24,7 @@ const StorePage = () => {
 
   return (
     <div className="store">
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <h2 className="d-flex justify-content-center align-items-center store-hero ">
             OUR COFFEE
@@ -34,7 +34,7 @@ const StorePage = () => {
             <SideNav data={proudctData} />
             <MobileFilter data={proudctData} />
           </div> */}
-          <div className="col-12 flex-wrap container border d-flex justify-content-center  ">
+          <div className="col-12 flex-wrap container-fluid d-flex justify-content-center  ">
             <ProductList products={products}></ProductList>
           </div>
         </div>
