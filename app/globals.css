@@ -46,6 +46,7 @@
   --gold: #c7a17a;
   --dark-bg: #282828;
   --darkbg-font-color: #c3bdb2;
+  --gray-font-color: #c3bdb2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -152,7 +153,7 @@ a {
   height: 100%;
   width: 100%;
   z-index: 4;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   background-color: black;
   opacity: 0;
 }
@@ -199,6 +200,10 @@ a {
   display: flex;
   justify-content: center;
   max-width: 300px;
+}
+.product-name {
+  color: var(--gray-font-color);
+  font-size: 24px;
 }
 
 .coffee-roast {

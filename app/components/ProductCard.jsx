@@ -6,7 +6,7 @@ import AddToCartBtn from "./AddToCartBtn";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-  let roastStr = product.roast;
+  console.log(product);
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
         }`}
       >
         <AddToCartBtn />
-        <p>Product Title</p>
+        <span className="product-name">{product.name.toUpperCase()}</span>
       </div>
     </div>
   );
