@@ -8,8 +8,6 @@ const StorePage = () => {
   let [products, setProducts] = useState([]);
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
-  console.log(products);
-
   useEffect(() => {
     fetch(`${hostURL}/api/products`, {
       method: "GET",

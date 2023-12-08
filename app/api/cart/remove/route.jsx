@@ -21,7 +21,6 @@ export async function POST(request) {
 
     // If you need to use the response JSON in both try and catch, parse it here and store in a variable
     const responseData = await res.json();
-    console.log(responseData);
     return NextResponse.json(responseData);
   } catch (error) {
     // Log the error message, not the response JSON, as the fetch might have failed

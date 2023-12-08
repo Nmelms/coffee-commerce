@@ -9,7 +9,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-  console.log(product);
   const [hovered, setHovered] = useState(false);
   const [loaded, setLoaded] = useState(false);
   return (
@@ -46,7 +45,7 @@ const ProductCard = ({ product }) => {
             hovered ? "hovered" : ""
           }`}
         >
-          <AddToCartBtn />
+          <AddToCartBtn product={product} />
           <span className="product-name">{product.name.toUpperCase()}</span>
         </div>
       )}

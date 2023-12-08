@@ -32,9 +32,11 @@ const AddToCartBtn = ({ product }) => {
       });
   }, []);
 
-  const handleClick = async (e, id) => {
+  const handleClick = async (e, product) => {
+    let id = product.id;
     e.preventDefault();
     const itemIndex = cart.findIndex((item) => item.id === id);
+    console.log(itemIndex, "this is the item inddex");
     //if item exsits add one to cart else add new item
     if (itemIndex !== -1) {
       const res = await fetch(`api/cart/update/`, {
@@ -49,12 +51,8 @@ const AddToCartBtn = ({ product }) => {
         }),
       });
       if (res.ok) {
-        // let updatedCart = [...cart];
-        // updatedCart[itemIndex] = {
-        //   ...updatedCart[itemIndex],
-        //   quantity: updatedCart[itemIndex].quantity + 1,
-        // };
         let json = await res.json();
+        console.log("these are the items");
         setCart(json.items);
         changeText("Success");
         addToCart();
@@ -75,6 +73,7 @@ const AddToCartBtn = ({ product }) => {
 
       if (res.ok) {
         let json = await res.json();
+        console.log(json);
         setCart(json.items);
         changeText("Success");
         addToCart();
