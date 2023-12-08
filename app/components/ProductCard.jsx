@@ -11,6 +11,7 @@ import Link from "next/link";
 const ProductCard = ({ product }) => {
   console.log(product);
   const [hovered, setHovered] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   return (
     <div
       onMouseOver={() => setHovered(true)}
@@ -24,26 +25,31 @@ const ProductCard = ({ product }) => {
           width={500}
           src={product.images[0].src}
           alt="product image"
+          onLoad={() => setLoaded(true)}
         />
-        <div className="img-overlay ">
-          <a
-            className="h-100 w-100 d-flex justify-content-center align-items-center"
-            href={`/product/${product.id}`}
-          >
-            <div className="mag-wrapper d-flex justify-content-center align-items-center">
-              <FontAwesomeIcon color={"black"} icon={faSearch} />
-            </div>
-          </a>
+        {loaded && (
+          <div className="img-overlay ">
+            <a
+              className="h-100 w-100 d-flex justify-content-center align-items-center"
+              href={`/shop/${product.id}`}
+            >
+              <div className="mag-wrapper d-flex justify-content-center align-items-center">
+                <FontAwesomeIcon color={"black"} icon={faSearch} />
+              </div>
+            </a>
+          </div>
+        )}
+      </div>
+      {loaded && (
+        <div
+          className={`product-bottom pt-4 d-flex flex-column align-items-center ${
+            hovered ? "hovered" : ""
+          }`}
+        >
+          <AddToCartBtn />
+          <span className="product-name">{product.name.toUpperCase()}</span>
         </div>
-      </div>
-      <div
-        className={`product-bottom pt-4 d-flex flex-column align-items-center ${
-          hovered ? "hovered" : ""
-        }`}
-      >
-        <AddToCartBtn />
-        <span className="product-name">{product.name.toUpperCase()}</span>
-      </div>
+      )}
     </div>
   );
 };
