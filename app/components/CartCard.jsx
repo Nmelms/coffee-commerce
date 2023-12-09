@@ -10,6 +10,7 @@ import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 
 const CartCard = ({ item, setCartItems }) => {
+  console.log(item, "this is from cartcard");
   const { setItemCount } = useCartNumber();
   const priceInDollars = (price) => price / 100;
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
@@ -66,7 +67,7 @@ const CartCard = ({ item, setCartItems }) => {
           <QuantityCounter
             setCartItems={setCartItems}
             id={item.key}
-            quantity={quantity}
+            initialQuan={item.quantity}
             setQuantity={setQuantity}
             updateCartApi={updateCartApi}
           />
