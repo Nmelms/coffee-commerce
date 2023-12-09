@@ -18,9 +18,36 @@ const fetchProduct = async ({ id }) => {
   } catch (error) {}
 };
 
+const fetchCart = async () => {
+  let apiURL = process.env.API_URL;
+  let nonce = cookies().has("nonce") ? cookies().get("nonce").value : "";
+  let cartToken = cookies().has("cart-token")
+    ? cookies().get("cart-token").value
+    : "";
+  let res = await fetch(`${apiURL}/wp-json/wc/store/v1/cart`, {
+    method: "GET",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+      Nonce: nonce,
+      "Cart-Token": cartToken,
+    },
+  });
+  let json = await res.json();
+  return json;
+};
+
 const ProductPage = async ({ params }) => {
   const product = await fetchProduct(params);
-  console.log(product.data);
+
+  const cart = await fetchCart();
+
+  let item = cart.items?.filter((item) => {
+    return item.id === product.data.id;
+  });
+
+  console.log(item[0].quantity, "item quan");
+  // let item = cart.filter(item => item);
 
   return (
     <>
@@ -68,7 +95,7 @@ const ProductPage = async ({ params }) => {
             </span>
           </div>
           <div className="quantitit-wrapper d-flex">
-            <QuantityCounter />
+            <QuantityCounter id={item[0].key} initialQuan={item[0].quantity} />
           </div>
 
           <span className="productPrice">${product.data.price}</span>
