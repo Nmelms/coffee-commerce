@@ -35,23 +35,37 @@ const ProductPage = async ({ params }) => {
           width={300}
           alt={product.data.name}
         />
-        <div className="productDetails d-flex  flex-column justify-content-between">
+        <div className="productDetails  d-flex  flex-column justify-content-between">
           <span className="product-name mt-4">{product.data.name}</span>
-          <div className="price-wrapper d-flex">
-            <span className="product-price">Price:</span>
-            <span>{product.data.price}</span>
+          <div className="product-attribute-wrapper d-flex align-items-center  ">
+            <span className="product-attribute-label ">Price:</span>
+            <span className="product-attribute-data price ">
+              ${product.data.price}
+            </span>
           </div>
-          <div className="weight-wrapper d-flex">
-            <span className="product-weight">Weight:</span>
-            <span>{product.data.price}</span>
+          <div className="product-attribute-wrapper d-flex align-items-center">
+            <span className="product-attribute-label">Weight:</span>
+            <span className="product-attribute-data">
+              {product.data.acf.weight}
+            </span>
           </div>
-          <div className="roast-wrapper d-flex">
-            <span className="product-roast">Roast:</span>
-            <span>{product.data.acf.coffee_roast}</span>
+          <div className="product-attribute-wrapper d-flex align-items-center">
+            <span className="product-attribute-label">Roast:</span>
+            <span
+              className={`product-attribute-data ${product.data.acf.coffee_roast}`}
+            >
+              {product.data.acf.coffee_roast}
+            </span>
           </div>
-          <div className="avail-wrapper d-flex">
-            <span className="product-avail">Availibility:</span>
-            <span>{product.data.price}</span>
+          <div className="product-attribute-wrapper d-flex align-items-center">
+            <span className="product-attribute-label">Availibility:</span>
+            <span
+              className={`product-attribute-data ${product.data.stock_status}`}
+            >
+              {product.data.stock_status === "instock"
+                ? "In Stock!"
+                : "Sorry! We are out of stock."}
+            </span>
           </div>
           <div className="quantitit-wrapper d-flex">
             <QuantityCounter />

@@ -195,9 +195,39 @@ a {
   border-radius: 15px;
   transition: box-shadow 0.3s ease;
 }
-.product-name {
-  color: black;
-  font-size: 24px;
+.product-attribute-wrapper {
+}
+.product-attribute-label {
+  min-width: 100px;
+}
+
+.product-attribute-data {
+  &.light {
+    color: #967259;
+    font-weight: normal;
+  }
+  &.medium {
+    color: #634832;
+    font-weight: normal;
+  }
+  &.dark {
+    color: #38220f;
+    font-weight: normal;
+  }
+  &.instock {
+    color: #4caf50;
+    font-weight: normal;
+  }
+  &.outofstock {
+    color: #ff0000;
+  }
+  &.price {
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    color: var(--gold);
+
+    font-weight: bolder;
+  }
 }
 
 .product-card-wrapper {
@@ -230,6 +260,7 @@ a {
     background-color: #38220f;
   }
 }
+
 .footer {
   text-align: center;
   min-height: 20vh;
