@@ -93,16 +93,16 @@ const ProductPage = async ({ params }) => {
                 : "Sorry! We are out of stock."}
             </span>
           </div>
-          <div className="quantitit-wrapper d-flex">
-            <QuantityCounter
-              id={item[0]?.key}
-              initialQuan={item[0]?.quantity ? item[0]?.quantity : 0}
-              productId={product?.data.id}
-            />
+          <div className="product-attribute-wrapper d-flex align-items-center mb-5">
+            <span className="product-attribute-label">Quantity:</span>
+            <span className="product-attribute-data">
+              <QuantityCounter
+                id={item[0]?.key}
+                initialQuan={item[0]?.quantity ? item[0]?.quantity : 0}
+                productId={product?.data.id}
+              />
+            </span>
           </div>
-
-          <span className="productPrice">${product.data.price}</span>
-          <span>Quantity component</span>
           <AddToCartBtn product={product.data.id} />
         </div>
       </div>

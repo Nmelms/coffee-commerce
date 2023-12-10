@@ -196,6 +196,7 @@ a {
   transition: box-shadow 0.3s ease;
 }
 .product-attribute-wrapper {
+  margin-top: 0.5rem;
 }
 .product-attribute-label {
   min-width: 100px;
@@ -491,7 +492,25 @@ a {
   background-size: cover;
   color: white;
 }
-
+.quantity-number {
+  height: 30px !important;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+.increment-btn {
+  height: 30px !important;
+  border-radius: 0 50% 50% 0 !important;
+  background-color: var(--gold) !important;
+  border: none !important;
+  color: black !important;
+}
+.decrement-btn {
+  height: 30px !important;
+  border-radius: 50% 0 0 50% !important;
+  background-color: var(--gold) !important;
+  border: none !important;
+  color: black !important;
+}
 .cart-list {
   margin-top: 10vh;
 }

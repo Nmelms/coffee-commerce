@@ -85,9 +85,19 @@ const QuantityCounter = ({ id, initialQuan, productId }) => {
 
   return (
     <div className="d-flex">
-      <Button onClick={() => handleDecrement()}> - </Button>
-      <span className="p-3">{quantity} </span>
-      <Button onClick={() => handleIncrement()}> + </Button>
+      <Button
+        className="decrement-btn  d-flex align-items-center"
+        onClick={() => handleDecrement()}
+      >
+        -
+      </Button>
+      <span className="quantity-number px-3">{quantity} </span>
+      <Button
+        className="increment-btn d-flex align-items-center"
+        onClick={() => handleIncrement()}
+      >
+        +
+      </Button>
     </div>
   );
 };
