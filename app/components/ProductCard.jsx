@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
     >
       <div className="product-card-wrapper d-flex flex-column mx-4 mt-4">
         <Image
-          className="product-img"
+          className="product-store-img"
           height={500}
           width={500}
           src={product.images[0].src}

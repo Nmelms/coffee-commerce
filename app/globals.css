@@ -189,6 +189,10 @@ a {
   height: auto;
   /* width: 100%; */
 }
+.product-store-img {
+  width: 100%;
+  height: auto;
+}
 .product-card {
   max-width: 300px;
   flex-direction: column;
