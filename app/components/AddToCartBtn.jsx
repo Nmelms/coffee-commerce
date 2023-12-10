@@ -36,10 +36,9 @@ const AddToCartBtn = ({ product }) => {
     let id = product.id;
     e.preventDefault();
     const itemIndex = cart.findIndex((item) => item.id === id);
-    console.log(itemIndex, "this is the item inddex");
     //if item exsits add one to cart else add new item
     if (itemIndex !== -1) {
-      const res = await fetch(`api/cart/update/`, {
+      const res = await fetch(`/api/cart/update/`, {
         method: "POST",
         cache: "no-cache",
         headers: {
@@ -52,7 +51,6 @@ const AddToCartBtn = ({ product }) => {
       });
       if (res.ok) {
         let json = await res.json();
-        console.log("these are the items");
         setCart(json.items);
         changeText("Success");
         addToCart();
@@ -62,7 +60,7 @@ const AddToCartBtn = ({ product }) => {
         return NextResponse.json(res);
       }
     } else {
-      const res = await fetch(`api/cart/add/`, {
+      const res = await fetch(`/api/cart/add/`, {
         method: "POST",
         cache: "no-cache",
         headers: {
@@ -73,7 +71,6 @@ const AddToCartBtn = ({ product }) => {
 
       if (res.ok) {
         let json = await res.json();
-        console.log(json);
         setCart(json.items);
         changeText("Success");
         addToCart();

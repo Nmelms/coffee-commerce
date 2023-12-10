@@ -103,7 +103,7 @@ const ProductPage = async ({ params }) => {
               />
             </span>
           </div>
-          <AddToCartBtn product={product.data.id} />
+          <AddToCartBtn product={product?.data} />
         </div>
       </div>
     </>
