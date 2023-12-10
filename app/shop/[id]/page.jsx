@@ -41,6 +41,7 @@ const ProductPage = async ({ params }) => {
   const product = await fetchProduct(params);
   console.log(product, "this is the prodct");
   const cart = await fetchCart();
+  console.log(product);
 
   let item = cart.items?.filter((item) => {
     return item.id === product.data.id;
@@ -106,6 +107,14 @@ const ProductPage = async ({ params }) => {
           <AddToCartBtn product={product?.data} />
         </div>
       </div>
+      <section className="product-description container">
+        <div className="description-title px-4 py-3">PRODUCT DESCRIPTION</div>
+        {/* eventually need to sanatize the html coming in from woo */}
+        <div
+          className="description-text border p-3"
+          dangerouslySetInnerHTML={{ __html: product.data.description }}
+        ></div>
+      </section>
     </>
   );
 };
