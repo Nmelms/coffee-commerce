@@ -39,14 +39,13 @@ const fetchCart = async () => {
 
 const ProductPage = async ({ params }) => {
   const product = await fetchProduct(params);
-
+  console.log(product, "this is the prodct");
   const cart = await fetchCart();
 
   let item = cart.items?.filter((item) => {
     return item.id === product.data.id;
   });
 
-  console.log(item[0].quantity, "item quan");
   // let item = cart.filter(item => item);
 
   return (
@@ -95,7 +94,11 @@ const ProductPage = async ({ params }) => {
             </span>
           </div>
           <div className="quantitit-wrapper d-flex">
-            <QuantityCounter id={item[0].key} initialQuan={item[0].quantity} />
+            <QuantityCounter
+              id={item[0]?.key}
+              initialQuan={item[0]?.quantity ? item[0]?.quantity : 0}
+              productId={product?.data.id}
+            />
           </div>
 
           <span className="productPrice">${product.data.price}</span>

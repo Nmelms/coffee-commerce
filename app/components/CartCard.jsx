@@ -9,8 +9,7 @@ import QuantityCounter from "../components/QuantityCounter";
 import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 
-const CartCard = ({ item, setCartItems }) => {
-  console.log(item, "this is from cartcard");
+const CartCard = ({ item, setCartItems, productId }) => {
   const { setItemCount } = useCartNumber();
   const priceInDollars = (price) => price / 100;
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
