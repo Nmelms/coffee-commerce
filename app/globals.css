@@ -145,6 +145,9 @@ a {
 .product-img-wrapper {
   position: relative;
 }
+.product-details-name {
+  font-size: 24px;
+}
 
 .img-overlay {
   top: 0;
@@ -481,6 +484,9 @@ a {
 
 .productPage {
 }
+.product-row {
+  height: fit-content;
+}
 
 /* .productDetails {
   margin-left: 0;
@@ -589,6 +595,9 @@ a {
   }
   .home-hero {
     height: 100vh;
+  }
+  .product-details-name {
+    font-size: 50px;
   }
 }
 
