@@ -549,6 +549,21 @@ a {
   align-self: flex-end;
   max-width: 250;
 }
+.checkout-btn {
+  background-color: var(--gold);
+  border: none;
+  width: 150px;
+}
+.checkout {
+  min-height: 90vh;
+}
+.shipping-title {
+  color: var(--gold);
+  font-size: 40px;
+}
+.shipping-subtitle {
+  font-size: 12px;
+}
 
 .order-total {
   font-size: 20px;
@@ -607,6 +622,9 @@ a {
     height: 100vh;
   }
   .product-details-name {
+    font-size: 50px;
+  }
+  .shipping-title {
     font-size: 50px;
   }
 }

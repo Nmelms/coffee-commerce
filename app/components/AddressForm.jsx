@@ -12,14 +12,14 @@ const AddressForm = ({
   return (
     <Form className="address-form container">
       <div className="row d-flex justify-content-center">
-        <Form.Group className="mb-3 col-4" controlId="first_name">
+        <Form.Group className="mb-3 col-12 col-lg-6" controlId="first_name">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
             placeholder="First Name"
           />
         </Form.Group>
-        <Form.Group className="mb-3 col-4" controlId="last_name">
+        <Form.Group className="mb-3 col-12 col-lg-6" controlId="last_name">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
@@ -28,7 +28,7 @@ const AddressForm = ({
         </Form.Group>
       </div>
       <div className="row d-flex justify-content-center">
-        <Form.Group className="mb-3 col-8" controlId="address_1">
+        <Form.Group className="mb-3 col-12" controlId="address_1">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
@@ -37,21 +37,21 @@ const AddressForm = ({
         </Form.Group>
       </div>
       <div className="row d-flex justify-content-center">
-        <Form.Group className="mb-3 col-4" controlId="city">
+        <Form.Group className="mb-3 col-12 col-lg-4" controlId="city">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
             placeholder="City"
           />
         </Form.Group>
-        <Form.Group className="mb-3 col-2" controlId="state">
+        <Form.Group className="mb-3 col-6 col-lg-4" controlId="state">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"
             placeholder="State"
           />
         </Form.Group>
-        <Form.Group className="mb-3 col-2" controlId="postcode">
+        <Form.Group className="mb-3 col-6 col-lg-4" controlId="postcode">
           <Form.Control
             onChange={(e) => handleChange(e)}
             type="text"

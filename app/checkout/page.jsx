@@ -57,6 +57,7 @@ const Checkout = () => {
   };
 
   const handleChange = (e) => {
+    //sets the billing state values
     const { id, value } = e.target;
     setBillingAddress((prevState) => {
       const newBillingAddress = {
@@ -110,8 +111,14 @@ const Checkout = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center h-100">
-      Shipping address
+    <div className="d-flex checkout flex-column justify-content-center align-items-center h-100">
+      <div className="title-wrapper text-center my-5">
+        <h2 className="shipping-title">Shipping Address</h2>
+        <span className="shipping-subtitle">
+          (currently we are only shipping to the United States)
+        </span>
+      </div>
+
       <AddressForm
         billingAddres={billingAddress}
         setBillingAddress={setBillingAddress}
