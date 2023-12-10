@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { useEffect, useState } from "react";
 import RemoveBtn from "../components/RemoveBtn";
 import Loading from "../components/Loading";
-// import { Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 // import Image from "next/image";
 import CheckoutBtn from "../components/CheckoutBtn";
 // import AddressForm from "../components/AddressForm";
@@ -31,21 +31,22 @@ const Cart = () => {
   }, []);
 
   return (
-    <div className="cart container  ">
-      <div className="cart-list p-0 container">
+    <div className="cart container d-flex flex-column  ">
+      <div className="cart-list p-0 ">
         {cartItems?.map((item) => (
           <CartCard key={item.key} setCartItems={setCartItems} item={item} />
         ))}
       </div>
       {data.totals?.total_price && (
-        <Suspense fallback={<Loading />}>
-          <div className="d-flex justify-content-end">
-            <span className="order-total">
-              Total: {priceInDollars(data.totals?.total_price)}
-            </span>
-          </div>
-        </Suspense>
+        <div className="d-flex justify-content-end">
+          <span className="order-total">
+            Total: {priceInDollars(data.totals?.total_price)}
+          </span>
+        </div>
       )}
+      <Button href="/checkout" className="to-checkout-btn rounded-pill mt-5">
+        Proceed To Checkouttt
+      </Button>
       {/* <AddressForm orderData={orderData} setOrderData={setOrderData} /> */}
     </div>
   );
