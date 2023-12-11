@@ -32,7 +32,11 @@ const Cart = () => {
 
   return (
     <div className="cart container d-flex flex-column  ">
-      <div className="cart-list p-0 d-flex justify-content-center align-items-center">
+      <div
+        className={`cart-list p-0 d-flex justify-content-center ${
+          cartItems.length === 0 ? "align-items-center" : ""
+        } `}
+      >
         {cartItems?.map((item) => (
           <CartCard key={item.key} setCartItems={setCartItems} item={item} />
         ))}
