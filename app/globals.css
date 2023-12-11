@@ -348,7 +348,7 @@ a {
 
 .navBar {
   position: fixed !important;
-  z-index: 2;
+  z-index: 50;
   top: 0;
   left: 0;
   width: 100vw;
@@ -478,7 +478,7 @@ a {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/home-hero.jpg") center center / cover no-repeat;
   height: 20vh;
-  margin-top: 8vh;
+  margin-top: 6vh;
   background-position: center;
   background-size: cover;
   color: white;
@@ -501,7 +501,7 @@ a {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/home-hero.jpg") center center / cover no-repeat;
   height: 20vh;
-  margin-top: 7vh;
+  margin-top: 6vh;
   background-position: center;
   background-size: cover;
   color: white;
