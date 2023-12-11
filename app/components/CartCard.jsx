@@ -50,7 +50,7 @@ const CartCard = ({ item, setCartItems, productId }) => {
           <Image
             style={{ objectFit: "contain" }}
             src={item.images[0].src}
-            alt="image"
+            alt=({})
             className="cart-card-image"
             height={150}
             width={150}

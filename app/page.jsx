@@ -44,6 +44,7 @@ export default function Home() {
         <div className="row pb-lg-4">
           <div className="col-lg-6 d-flex flex-column">
             <Image
+              alt="barista"
               className="section3-img mx-lg-0 mt-lg-4"
               src="/worker1.webp"
               width={500}
@@ -90,7 +91,12 @@ export default function Home() {
         </div>
       </section>
       <section className="home-menu container-fluid d-flex flex-column align-items-center pt-5">
-        <Image width={100} height={100} src="/beans.avif"></Image>
+        <Image
+          alt="coffee beans"
+          width={100}
+          height={100}
+          src="/beans.avif"
+        ></Image>
         <span className="menu-title">OUR COFFEE MENU</span>
         <div className="row w-100">
           <div className="col-12 col-lg-6 text-center d-flex flex-column">

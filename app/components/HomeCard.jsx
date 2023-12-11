@@ -10,7 +10,7 @@ const HomeCard = ({ img, title, text }) => {
           height={100}
           width={500}
           src={img}
-          alt={"coffee shop image"}
+          alt="coffee shop image"
         ></Image>
         <h2 className="mt-3">{title}</h2>
         <p>{text}</p>

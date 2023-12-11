@@ -5,6 +5,7 @@ const Section3Card = ({ src, title, text }) => {
   return (
     <div className="d-flex flex-column row flex-md-row align-items-center text-center my-4">
       <Image
+        alt="coffee icon"
         className="col-md-4 section3-card-img"
         height={100}
         width={100}

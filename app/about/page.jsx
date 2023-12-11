@@ -36,7 +36,7 @@ const aboutPage = () => {
                 <Image
                   height={100}
                   width={100}
-                  alt={"coffee leaf"}
+                  alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 ></Image>
                 <p>This is some text under the pic</p>
@@ -45,7 +45,7 @@ const aboutPage = () => {
                 <Image
                   height={100}
                   width={100}
-                  alt={"coffee leaf"}
+                  alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 />
                 <p>test under image</p>
@@ -56,7 +56,7 @@ const aboutPage = () => {
                 <Image
                   height={100}
                   width={100}
-                  alt={"coffee leaf"}
+                  alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 />
                 <p>test under image</p>
@@ -65,7 +65,7 @@ const aboutPage = () => {
                 <Image
                   height={100}
                   width={100}
-                  alt={"coffee leaf"}
+                  alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 />
                 <p>test under image</p>
