@@ -33,8 +33,8 @@ const Cart = () => {
   return (
     <div className="cart container d-flex flex-column  ">
       <div
-        className={`cart-list p-0 d-flex justify-content-center ${
-          cartItems.length === 0 ? "align-items-center" : ""
+        className={`cart-list flex-column p-0 d-flex align-items-center ${
+          cartItems.length === 0 ? "justify-content-center" : ""
         } `}
       >
         {cartItems?.map((item) => (

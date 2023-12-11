@@ -57,7 +57,7 @@ const CartCard = ({ item, setCartItems, productId }) => {
           />
         </Col>
         <Col
-          xs={3}
+          xs={4}
           lg={4}
           className="card-name-wrapper d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center"
         >
@@ -72,21 +72,21 @@ const CartCard = ({ item, setCartItems, productId }) => {
           />
         </Col>
         <Col
-          xs={3}
+          xs={2}
           lg={3}
           className="d-flex justify-content-center align-items-center "
         >
-          <div className="p-2 d-flex flex-column text-center">
-            <p>Unit Price</p>
+          <div className="p-2 d-none d-lg-flex flex-column text-center">
+            <p className="m-0 mb-lg-2">Unit Price</p>
             <span>${priceInDollars(item.prices.price)}</span>
           </div>
           <div className="p-2 d-flex flex-column text-center">
-            <p>total Price</p>
+            <p className="m-0 mb-lg-2">Total Price</p>
             <span>${quantity * totalPrice}</span>
           </div>
         </Col>
         <Col
-          xs={3}
+          xs={2}
           lg={2}
           className="d-flex justify-content-end align-items-center"
         >
