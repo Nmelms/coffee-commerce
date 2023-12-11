@@ -284,11 +284,11 @@ a {
   border-color: var(--darker-brown) !important;
 }
 .footer-link:hover {
-  color: black !important;
+  color: var(--darker-brown) !important;
 }
 .footer-link {
   text-decoration: none;
-  color: var(--light-brown) !important;
+  color: var(--gold) !important;
   margin-top: 1rem;
 }
 
