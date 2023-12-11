@@ -65,7 +65,7 @@ export default function Home() {
               SHOP NOW
             </Button>
           </div>
-          <div className="col-lg-6 d-lg-flex flex-lg-column justify-content-lg-between">
+          <div className="col-lg-6 d-lg-flex flex-lg-column justify-content-lg-around">
             <Section3Card
               src={"/cup1.webp"}
               title={"Dried Pure Instant Coffee"}
@@ -90,7 +90,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="home-menu container-fluid d-flex flex-column align-items-center pt-5">
+      <section className="home-menu container-fluid d-flex flex-column align-items-center py-5 ">
         <Image
           alt="coffee beans"
           width={100}
@@ -102,50 +102,42 @@ export default function Home() {
           <div className="col-12 col-lg-6 text-center d-flex flex-column">
             <span>Coffee</span>
 
-            <p>Roasted cofee.......$1.00</p>
+            <p>Drip Coffee.......$3.00</p>
 
-            <p>Roasted cofee.......$1.00</p>
+            <p>Pour Over.......$4.00</p>
 
-            <p>Roasted cofee.......$1.00</p>
+            <p>ChemX.......$4.00</p>
 
-            <p>Roasted cofee.......$1.00</p>
-
-            <p>Roasted cofee.......$1.00</p>
-
-            <p>Roasted cofee.......$1.00</p>
+            <p>AeroPress.......$4.00</p>
           </div>
           <div className="col-12 col-lg-6 text-center d-flex flex-column">
             <span>TEA</span>
 
-            <p>Roasted tea.......$1.00</p>
+            <p>Black tea.......$3.00</p>
 
-            <p>Roasted tea.......$1.00</p>
+            <p>Green tea.......$3.00</p>
 
-            <p>Roasted tea.......$1.00</p>
+            <p>Chai tea.......$3.00</p>
 
-            <p>Roasted tea.......$1.00</p>
-
-            <p>Roasted tea.......$1.00</p>
-
-            <p>Roasted tea.......$1.00</p>
+            <p>Rooibos tea.......$1.00</p>
           </div>
         </div>
         <div className="row w-100">
           <div className="col-12 col-lg-6 text-center">
-            <span>Espress</span>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
+            <span>Espresso</span>
+            <p>Single........$2.00</p>
+            <p>Double........$3.00</p>
+            <p>Cuban Coffee........$4.00</p>
+            <p>Shaken Espresso........$4.00</p>
+            <p>Long Shot.......$2.00</p>
           </div>
           <div className="col-12 col-lg-6 text-center">
             <span>MILKS</span>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
-            <p>XTRA STRONG........$1.00</p>
+            <p>Whole</p>
+            <p>2%.</p>
+            <p>Oat........+1</p>
+            <p>Soy........+1</p>
+            <p>Almond........+1</p>
           </div>
         </div>
       </section>
