@@ -67,13 +67,13 @@ const Footer = () => {
                 <Link className="text-start footer-link" href="/">
                   Home
                 </Link>
-                <Link className="text-start footer-link" href="/">
+                <Link className="text-start footer-link" href="/about">
                   About
                 </Link>
-                <Link className="text-start footer-link" href="/">
+                <Link className="text-start footer-link" href="/shop">
                   Shop
                 </Link>
-                <Link className="text-start footer-link" href="/">
+                <Link className="text-start footer-link" href="/cart">
                   Cart
                 </Link>
               </ul>
