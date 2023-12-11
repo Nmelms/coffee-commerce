@@ -66,7 +66,7 @@ const Cart = () => {
         </div>
       )}
       <Button href="/checkout" className="to-checkout-btn rounded-pill mt-5">
-        Proceed To Checkouttt
+        Proceed To Checkout
       </Button>
       {/* <AddressForm orderData={orderData} setOrderData={setOrderData} /> */}
     </div>
