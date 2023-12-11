@@ -39,7 +39,7 @@ const aboutPage = () => {
                   alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 ></Image>
-                <p>This is some text under the pic</p>
+                <p> neque gravida </p>
               </div>
               <div className="col-6">
                 <Image
@@ -48,7 +48,7 @@ const aboutPage = () => {
                   alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 />
-                <p>test under image</p>
+                <p>augue neque in </p>
               </div>
             </div>
             <div className="col-12 col-lg-3  d-flex justify-content-around align-items-lg-center order-lg-1 flex-lg-column">
@@ -59,7 +59,7 @@ const aboutPage = () => {
                   alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 />
-                <p>test under image</p>
+                <p>amet nisl in</p>
               </div>
               <div className="col-6">
                 <Image
@@ -68,7 +68,7 @@ const aboutPage = () => {
                   alt="coffee leaf"
                   src={"/coffee-leaf.png"}
                 />
-                <p>test under image</p>
+                <p>nam at lectus</p>
               </div>
             </div>
           </div>
