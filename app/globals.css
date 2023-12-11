@@ -357,6 +357,9 @@ a {
 .nav-toggle {
   color: var(--gold) !important;
 }
+.navbar-toggler {
+  background: darkgray !important;
+}
 .coffee-logo {
   text-align: center;
   margin: 0 auto;
