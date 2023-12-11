@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           <div className="col-lg-6 d-lg-flex flex-lg-column justify-content-lg-between">
             <Section3Card
-              src={"/cup1.avif"}
+              src={"/bag-beans.jpg"}
               title={"Dried Pure Instant Coffee"}
               text={
                 "Habitant morbi tristict sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
