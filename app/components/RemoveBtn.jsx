@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 import { NextResponse } from "next/server";
 import useCartNumber from "../useCartNumber";
-const RemoveBtn = ({ item, setCartItems, cartItems }) => {
+const RemoveBtn = ({ item, setCartItems, cartItems, setData }) => {
   const { itemCount, setItemCount } = useCartNumber();
   const handleClick = async () => {
     fetch(`/api/cart/remove`, {
@@ -15,6 +15,7 @@ const RemoveBtn = ({ item, setCartItems, cartItems }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setData(data);
         setCartItems(data.items);
         setItemCount(data.items_count);
       });

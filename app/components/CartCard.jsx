@@ -94,6 +94,7 @@ const CartCard = ({ item, setCartItems, productId, setData }) => {
           className="d-flex justify-content-end align-items-center"
         >
           <RemoveBtn
+            setData={setData}
             setCartItems={setCartItems}
             // cartItems={cartItems}
             item={item}
