@@ -9,7 +9,7 @@ import QuantityCounter from "../components/QuantityCounter";
 import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 
-const CartCard = ({ item, setCartItems, productId }) => {
+const CartCard = ({ item, setCartItems, productId, setData }) => {
   const { setItemCount } = useCartNumber();
   const priceInDollars = (price) => price / 100;
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
@@ -31,6 +31,8 @@ const CartCard = ({ item, setCartItems, productId }) => {
       let json = await res.json();
 
       if (res.ok) {
+        console.log(json, "the json");
+        setData(json);
         setItemCount(json.items_count);
         setCartItems(json.items);
         return NextResponse.json(json);
@@ -69,6 +71,7 @@ const CartCard = ({ item, setCartItems, productId }) => {
             initialQuan={item.quantity}
             setQuantity={setQuantity}
             updateCartApi={updateCartApi}
+            setData={setData}
           />
         </Col>
         <Col

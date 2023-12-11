@@ -38,7 +38,12 @@ const Cart = () => {
         } `}
       >
         {cartItems?.map((item) => (
-          <CartCard key={item.key} setCartItems={setCartItems} item={item} />
+          <CartCard
+            key={item.key}
+            setData={setData}
+            setCartItems={setCartItems}
+            item={item}
+          />
         ))}
         {cartItems.length === 0 && (
           <div className="d-flex flex-column text-center">

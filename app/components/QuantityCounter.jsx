@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 
-const QuantityCounter = ({ id, initialQuan, productId }) => {
+const QuantityCounter = ({ id, initialQuan, productId, setData }) => {
   useEffect(() => {
     console.log(initialQuan, "init quan");
   }, []);
@@ -31,6 +31,7 @@ const QuantityCounter = ({ id, initialQuan, productId }) => {
         let json = await res.json();
 
         if (res.ok) {
+          setData(json);
           setItemCount(json.items_count);
           setCartItems(json.items);
           return NextResponse.json(json);
@@ -55,6 +56,7 @@ const QuantityCounter = ({ id, initialQuan, productId }) => {
         let json = await res.json();
 
         if (res.ok) {
+          setData(json);
           setItemCount(json.items_count);
           setCartItems(json.items);
           return NextResponse.json(json);
