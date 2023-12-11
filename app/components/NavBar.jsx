@@ -13,13 +13,16 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="navBar" data-bs-theme="light">
       <Container>
-        <Image
-          className="coffee-logo"
-          src="/coffeeLogo.webp"
-          width="50"
-          height="50"
-          alt="coffee logo"
-        />
+        <a href="/">
+          <Image
+            className="coffee-logo"
+            src="/coffeeLogo.webp"
+            width="50"
+            height="50"
+            alt="coffee logo"
+          />
+        </a>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav nav-toggle" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
