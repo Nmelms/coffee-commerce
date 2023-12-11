@@ -411,7 +411,7 @@ a {
   width: 50px;
 }
 .store {
-  margin-top: 8vh;
+  margin-top: 6vh;
   margin-bottom: 75px;
 }
 
@@ -478,7 +478,7 @@ a {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/home-hero.jpg") center center / cover no-repeat;
   height: 20vh;
-  margin-top: 6vh;
+  /* margin-top: 6vh; */
   background-position: center;
   background-size: cover;
   color: white;
@@ -501,7 +501,7 @@ a {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/home-hero.jpg") center center / cover no-repeat;
   height: 20vh;
-  margin-top: 6vh;
+  /* margin-top: 6vh; */
   background-position: center;
   background-size: cover;
   color: white;

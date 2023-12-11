@@ -51,7 +51,10 @@ const ProductPage = async ({ params }) => {
 
   return (
     <>
-      <div className="product-hero w-100 d-flex justify-content-center align-items-center">
+      <div
+        style={{ marginTop: "6vh" }}
+        className="store-hero w-100 d-flex justify-content-center align-items-center"
+      >
         <h2>{product.data.name}</h2>
       </div>
       <div className="productPage container d-flex justify-content-center   space-apart">
