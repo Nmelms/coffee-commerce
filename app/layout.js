@@ -4,6 +4,7 @@ import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import { Marcellus } from "next/font/google";
+import Head from "next/head";
 
 const pd = Marcellus({
   weight: ["400"],
@@ -18,6 +19,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <script
+          defer
+          data-domain="coffeecommerce.nickmelms.dev"
+          src="https://plausible.io/js/script.js"
+        ></script>
+      </Head>
+
       <body className={`${pd.className}`}>
         <Navbar />
         {children}
