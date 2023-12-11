@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddToCartBtn from "./AddToCartBtn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +11,17 @@ import Link from "next/link";
 const ProductCard = ({ product }) => {
   const [hovered, setHovered] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 996);
+
+  // applies hovered class to cards on small screens
+  useEffect(() => {
+    function handleResize() {
+      setIsSmallScreen(window.innerWidth < 996);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div
       onMouseOver={() => setHovered(true)}
@@ -42,7 +53,7 @@ const ProductCard = ({ product }) => {
       {loaded && (
         <div
           className={`product-bottom pt-4 d-flex flex-column align-items-center ${
-            hovered ? "hovered" : ""
+            hovered || isSmallScreen ? "hovered" : ""
           }`}
         >
           <AddToCartBtn product={product} />
