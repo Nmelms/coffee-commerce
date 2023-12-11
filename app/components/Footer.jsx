@@ -48,9 +48,9 @@ const Footer = () => {
               <div className="row">
                 <h4 className="mb-3">Contact us</h4>
                 <span className="text-decoration-underline mt-3">Address:</span>
-                <span className="m-0 fw-light">6823 south Blvd</span>
-                <span className="m-0">Charlotte, nc</span>
-                <span className="m-0">22227</span>
+                <span className="m-0 fw-light">9090 Example Road</span>
+                <span className="m-0">Charlotte, NC</span>
+                <span className="m-0">55555</span>
               </div>
               <div className="row">
                 <span className="text-decoration-underline mt-3">Phone</span>
