@@ -5,11 +5,10 @@ import { Button } from "react-bootstrap";
 import { useState, useEffect, useRef } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
+import useCartStore from "../useCartStore";
 
 const QuantityCounter = ({ id, initialQuan, productId, setData }) => {
   const [quantity, setQuantity] = useState(initialQuan);
-  const { setItemCount } = useCartNumber();
-  const [cartItems, setCartItems] = useState([]);
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
   const updateCartApi = useDebouncedCallback(async (quantity, id) => {
@@ -27,16 +26,15 @@ const QuantityCounter = ({ id, initialQuan, productId, setData }) => {
         let json = await res.json();
 
         if (res.ok) {
-          setData(json);
-          setItemCount(json.items_count);
-          setCartItems(json.items);
+          useCartStore.getState().setCartData(json);
+          useCartStore.getState().updateCartItems(json.items);
+          useCartStore.getState().updateItemsCount(json.items_count);
           return NextResponse.json(json);
         } else {
           return NextResponse.json({ message: "error" });
         }
       } catch (error) {
         console.error("Error updating cart:", error);
-        // Handle the error appropriately
       }
     } else {
       try {
@@ -52,16 +50,15 @@ const QuantityCounter = ({ id, initialQuan, productId, setData }) => {
         let json = await res.json();
 
         if (res.ok) {
-          setData(json);
-          setItemCount(json.items_count);
-          setCartItems(json.items);
+          useCartStore.getState().setCartData(json);
+          useCartStore.getState().updateCartItems(json.items);
+          useCartStore.getState().updateItemsCount(json.items_count);
           return NextResponse.json(json);
         } else {
           return NextResponse.json({ message: "error" });
         }
       } catch (error) {
         console.error("Error updating cart:", error);
-        // Handle the error appropriately
       }
     }
   }, 400);
