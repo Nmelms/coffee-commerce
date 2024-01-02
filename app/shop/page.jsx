@@ -12,7 +12,7 @@ const StorePage = async () => {
     return fetch(`${hostURL}/api/products`, {
       method: "GET",
       next: {
-        revalidate: 3600,
+        revalidate: 10,
       },
       headers: {
         "Content-Type": "application/json",
