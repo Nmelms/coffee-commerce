@@ -12,6 +12,7 @@ const AddToCartBtn = ({ product }) => {
   );
   const [cart, setCart] = useState([]);
   const { addToCart, itemCount, resetCart } = useCartNumber();
+  const { updateItemsCount } = useCartStore();
 
   const changeText = (text) => {
     setCartText(text);
@@ -57,7 +58,7 @@ const AddToCartBtn = ({ product }) => {
           let json = await res.json();
           setCart(json.items);
           changeText("Success");
-          addToCart();
+          useCartStore.getState().updateItemsCount(json.items_count);
           return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
@@ -77,7 +78,7 @@ const AddToCartBtn = ({ product }) => {
           let json = await res.json();
           setCart(json.items);
           changeText("Success");
-          addToCart();
+          useCartStore.getState().updateItemsCount(json.items_count);
           return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
