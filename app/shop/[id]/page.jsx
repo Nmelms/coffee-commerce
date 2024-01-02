@@ -39,9 +39,7 @@ const fetchCart = async () => {
 
 const ProductPage = async ({ params }) => {
   const product = await fetchProduct(params);
-  console.log(product, "this is the prodct");
   const cart = await fetchCart();
-  console.log(product);
 
   let item = cart.items?.filter((item) => {
     return item.id === product.data.id;

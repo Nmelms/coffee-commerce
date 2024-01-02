@@ -31,7 +31,6 @@ const CartCard = ({ item, setCartItems, productId, setData }) => {
       let json = await res.json();
 
       if (res.ok) {
-        console.log(json, "the json");
         setData(json);
         setItemCount(json.items_count);
         setCartItems(json.items);

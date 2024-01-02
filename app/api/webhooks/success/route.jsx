@@ -26,12 +26,8 @@ export async function POST(res) {
         status: "completed",
       };
       WooCommerce.put(`orders/${woocommerceOrderId}`, data)
-        .then((response) => {
-          console.log("log from orders");
-        })
-        .catch((error) => {
-          console.log("log from orders");
-        });
+        .then((response) => {})
+        .catch((error) => {});
       return NextResponse.json(response.data);
     } catch (error) {
       return NextResponse.json({ message: "order failed" });

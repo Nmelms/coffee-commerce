@@ -7,16 +7,12 @@ import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 
 const QuantityCounter = ({ id, initialQuan, productId, setData }) => {
-  useEffect(() => {
-    console.log(initialQuan, "init quan");
-  }, []);
   const [quantity, setQuantity] = useState(initialQuan);
   const { setItemCount } = useCartNumber();
   const [cartItems, setCartItems] = useState([]);
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
   const updateCartApi = useDebouncedCallback(async (quantity, id) => {
-    console.log(quantity, productId, "flcikkk", quantity);
     if (initialQuan !== 0) {
       try {
         let res = await fetch(`${hostURL}/api/cart/update`, {

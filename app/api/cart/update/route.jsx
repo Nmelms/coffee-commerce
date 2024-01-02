@@ -5,7 +5,6 @@ export async function POST(request) {
   let req = await request.json();
   let key = req.key;
   let quantity = req.quantity;
-  console.log(quantity, "this is the quantity");
   let apiURL = process.env.API_URL;
   try {
     let res = await fetch(`${apiURL}/wp-json/wc/store/v1/cart/update-item`, {

@@ -7,7 +7,9 @@ import useCartNumber from "../useCartNumber";
 let carttoken = "";
 
 const AddToCartBtn = ({ product }) => {
-  const [cartText, setCartText] = useState("Add To Cart");
+  const [cartText, setCartText] = useState(
+    product.stock_status === "instock" ? "Add To Cart" : "Out Of Stock"
+  );
   const [cart, setCart] = useState([]);
   const { addToCart, itemCount, resetCart } = useCartNumber();
 
@@ -33,59 +35,66 @@ const AddToCartBtn = ({ product }) => {
   }, []);
 
   const handleClick = async (e, product) => {
+    console.log(product, " this si the product");
     let id = product.id;
     e.preventDefault();
     const itemIndex = cart.findIndex((item) => item.id === id);
     //if item exsits add one to cart else add new item
-    if (itemIndex !== -1) {
-      const res = await fetch(`/api/cart/update/`, {
-        method: "POST",
-        cache: "no-cache",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          key: cart[itemIndex].key,
-          quantity: cart[itemIndex].quantity + 1,
-        }),
-      });
-      if (res.ok) {
-        let json = await res.json();
-        setCart(json.items);
-        changeText("Success");
-        addToCart();
-        return NextResponse.json(res);
+    if (product.stock_status === "instock") {
+      if (itemIndex !== -1) {
+        const res = await fetch(`/api/cart/update/`, {
+          method: "POST",
+          cache: "no-cache",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            key: cart[itemIndex].key,
+            quantity: cart[itemIndex].quantity + 1,
+          }),
+        });
+        if (res.ok) {
+          let json = await res.json();
+          setCart(json.items);
+          changeText("Success");
+          addToCart();
+          return NextResponse.json(res);
+        } else {
+          changeText("Error, Try Again");
+          return NextResponse.json(res);
+        }
       } else {
-        changeText("Error, Try Again");
-        return NextResponse.json(res);
+        const res = await fetch(`/api/cart/add/`, {
+          method: "POST",
+          cache: "no-cache",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id }),
+        });
+
+        if (res.ok) {
+          let json = await res.json();
+          setCart(json.items);
+          changeText("Success");
+          addToCart();
+          return NextResponse.json(res);
+        } else {
+          changeText("Error, Try Again");
+          return NextResponse.json(res);
+        }
       }
     } else {
-      const res = await fetch(`/api/cart/add/`, {
-        method: "POST",
-        cache: "no-cache",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id }),
-      });
-
-      if (res.ok) {
-        let json = await res.json();
-        setCart(json.items);
-        changeText("Success");
-        addToCart();
-        return NextResponse.json(res);
-      } else {
-        changeText("Error, Try Again");
-        return NextResponse.json(res);
-      }
+      setCartText("Out Of stock");
     }
   };
 
   return (
     <>
       <Button
-        className="add-cart-btn rounded-pill mb-3 "
+        className={`add-cart-btn rounded-pill mb-3 ${
+          product.stock_status !== "instock" ? "disabled" : ""
+        }`}
         onClick={(e) => handleClick(e, product)}
       >
         <span>{cartText}</span>
