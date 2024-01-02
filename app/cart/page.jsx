@@ -9,10 +9,11 @@ import CheckoutBtn from "../components/CheckoutBtn";
 // import AddressForm from "../components/AddressForm";
 import { Suspense } from "react";
 import CartCard from "../components/CartCard";
+import useCartStore from "../useCartStore";
 
 const Cart = () => {
-  const [data, setData] = useState({});
-  const [cartItems, setCartItems] = useState([]);
+  const { cartData, setCartData, updateCartItems, cartItems } = useCartStore();
+  console.log(cartData);
 
   const priceInDollars = (price) => price / 100;
   useEffect(() => {
@@ -25,8 +26,8 @@ const Cart = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
-        setCartItems(data.items);
+        setCartData(data);
+        updateCartItems(data.items);
       });
   }, []);
 
@@ -34,18 +35,18 @@ const Cart = () => {
     <div className="cart container d-flex flex-column  ">
       <div
         className={`cart-list flex-column p-0 d-flex align-items-center ${
-          cartItems.length === 0 ? "justify-content-center" : ""
+          cartData.length === 0 ? "justify-content-center" : ""
         } `}
       >
-        {cartItems?.map((item) => (
+        {cartItems.map((item) => (
           <CartCard
             key={item.key}
-            setData={setData}
-            setCartItems={setCartItems}
+            setData={setCartData}
+            setCartItems={updateCartItems}
             item={item}
           />
         ))}
-        {cartItems.length === 0 && (
+        {cartData.length === 0 && (
           <div className="d-flex flex-column text-center">
             <Image
               className="empty-cart"
@@ -58,10 +59,10 @@ const Cart = () => {
           </div>
         )}
       </div>
-      {data.totals?.total_price && (
+      {cartData.totals?.total_price && (
         <div className="d-flex justify-content-end">
           <span className="order-total">
-            Total: {priceInDollars(data.totals?.total_price)}
+            Total: {priceInDollars(cartData.totals?.total_price)}
           </span>
         </div>
       )}
