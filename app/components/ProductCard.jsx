@@ -11,10 +11,13 @@ import Link from "next/link";
 const ProductCard = ({ product }) => {
   const [hovered, setHovered] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 996);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   // applies hovered class to cards on small screens
   useEffect(() => {
+    if (window.innerWidth < 996) {
+      setIsSmallScreen(true);
+    }
     function handleResize() {
       setIsSmallScreen(window.innerWidth < 996);
     }
