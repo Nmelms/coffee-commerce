@@ -1,25 +1,28 @@
-"use client";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import SideNav from "../components/SideNav";
 import ProductList from "../components/ProductList";
 import MobileFilter from "../components/MobileFilter";
 
-const StorePage = () => {
-  let [products, setProducts] = useState([]);
+const StorePage = async () => {
+  // let [products, setProducts] = useState([]);
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
-  useEffect(() => {
-    fetch(`${hostURL}/api/products`, {
+  async function getData() {
+    let products;
+    return fetch(`${hostURL}/api/products`, {
       method: "GET",
+      next: {
+        revalidate: 3600,
+      },
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => data)
       .catch((error) => console.log(error));
-  }, []);
-
+  }
+  const products = await getData();
   return (
     <div className="store">
       <div className="container-fluid">
