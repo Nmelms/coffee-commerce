@@ -45,8 +45,11 @@ const AddToCartBtn = ({ product }) => {
           setCartData(json);
           updateCartItems(json.items);
           changeText("Success");
+          updateItemsCount(json.items_count);
+          return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
+          return NextResponse.json(res);
         }
       } else {
         const res = await fetch(`/api/cart/add`, {
@@ -64,9 +67,10 @@ const AddToCartBtn = ({ product }) => {
           updateCartItems(json.items);
           changeText("Success");
           updateItemsCount(json.items_count);
-          console.log(json.items_count, "this is update");
+          return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
+          return NextResponse.json(res);
         }
       }
     } else {
