@@ -6,8 +6,11 @@ import HomeCard from "./components/HomeCard";
 import useCartNumber from "./useCartNumber";
 import Link from "next/link";
 import Section3Card from "./components/Section3Card";
+import useCartStore from "./useCartStore";
 
 export default function Home() {
+  const { setCartData, updateCartItems } = useCartStore();
+
   useEffect(() => {
     fetch(`/api/cart/`, {
       method: "GET",
@@ -17,8 +20,13 @@ export default function Home() {
       next: {
         revalidate: 10,
       },
-    }).then((res) => res.json());
-    // .then((data) => setItemCount(data.items_count));
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "this is the homepage data");
+        setCartData(data);
+        updateCartItems(data.items);
+      });
   }, []);
 
   return (

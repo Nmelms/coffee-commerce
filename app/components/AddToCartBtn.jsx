@@ -10,9 +10,9 @@ const AddToCartBtn = ({ product }) => {
   const [cartText, setCartText] = useState(
     product.stock_status === "instock" ? "Add To Cart" : "Out Of Stock"
   );
-  const [cart, setCart] = useState([]);
-  const { addToCart, itemCount, resetCart } = useCartNumber();
-  const { updateItemsCount } = useCartStore();
+  // const [cart, setCart] = useState([]);
+  const { setCartData, cartItems, updateItemsCount, updateCartItems } =
+    useCartStore();
 
   const changeText = (text) => {
     setCartText(text);
@@ -21,24 +21,10 @@ const AddToCartBtn = ({ product }) => {
     }, 700);
   };
 
-  useEffect(() => {
-    fetch(`/api/cart`, {
-      method: "GET",
-      cache: "no-cache",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCart(data.items);
-      });
-  }, []);
-
   const handleClick = async (e, product) => {
     let id = product.id;
     e.preventDefault();
-    const itemIndex = cart.findIndex((item) => item.id === id);
+    const itemIndex = cartItems.findIndex((item) => item.id === id);
     //if item exsits add one to cart else add new item
     if (product.stock_status === "instock") {
       if (itemIndex !== -1) {
@@ -49,15 +35,18 @@ const AddToCartBtn = ({ product }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            key: cart[itemIndex].key,
-            quantity: cart[itemIndex].quantity + 1,
+            key: cartItems[itemIndex].key,
+            quantity: cartItems[itemIndex].quantity + 1,
           }),
         });
         if (res.ok) {
           let json = await res.json();
-          setCart(json.items);
+          console.log(json);
+          setCartData(json);
+          updateCartItems(json.items);
           changeText("Success");
-          useCartStore.getState().updateItemsCount(json.items_count);
+          updateItemsCount(json.items_count);
+          console.log(json.items_count, "this is update");
           return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
@@ -75,9 +64,11 @@ const AddToCartBtn = ({ product }) => {
 
         if (res.ok) {
           let json = await res.json();
-          setCart(json.items);
+          setCartData(json);
+          updateCartItems(json.items);
           changeText("Success");
-          useCartStore.getState().updateItemsCount(json.items_count);
+          updateItemsCount(json.items_count);
+          console.log(json.items_count, "this is update");
           return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
