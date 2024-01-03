@@ -28,7 +28,7 @@ const AddToCartBtn = ({ product }) => {
     //if item exsits add one to cart else add new item
     if (product.stock_status === "instock") {
       if (itemIndex !== -1) {
-        const res = await fetch(`/api/cart/update/`, {
+        const res = await fetch(`/api/cart/update`, {
           method: "POST",
           cache: "no-cache",
           headers: {
@@ -45,15 +45,11 @@ const AddToCartBtn = ({ product }) => {
           setCartData(json);
           updateCartItems(json.items);
           changeText("Success");
-          updateItemsCount(json.items_count);
-          console.log(json.items_count, "this is update");
-          return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
-          return NextResponse.json(res);
         }
       } else {
-        const res = await fetch(`/api/cart/add/`, {
+        const res = await fetch(`/api/cart/add`, {
           method: "POST",
           cache: "no-cache",
           headers: {
@@ -69,10 +65,8 @@ const AddToCartBtn = ({ product }) => {
           changeText("Success");
           updateItemsCount(json.items_count);
           console.log(json.items_count, "this is update");
-          return NextResponse.json(res);
         } else {
           changeText("Error, Try Again");
-          return NextResponse.json(res);
         }
       }
     } else {
