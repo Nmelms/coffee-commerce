@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ["ecomm.local", "coffeeapi.nickmelms.dev", "146.190.41.238"],
   },
   experimental: {
-    serverActions: true,
+    // serverActions: true,
   },
   async headers() {
     return [
