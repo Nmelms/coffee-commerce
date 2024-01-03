@@ -36,7 +36,6 @@ const AddToCartBtn = ({ product }) => {
   }, []);
 
   const handleClick = async (e, product) => {
-    console.log(product, " this si the product");
     let id = product.id;
     e.preventDefault();
     const itemIndex = cart.findIndex((item) => item.id === id);

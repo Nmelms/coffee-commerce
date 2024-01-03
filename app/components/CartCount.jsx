@@ -6,7 +6,6 @@ import useCartStore from "../useCartStore";
 
 const CartCount = () => {
   const { itemsCount, updateItemsCount } = useCartStore();
-  console.log(itemsCount, "this is the items count");
   useEffect(() => {
     if (itemsCount === 0) {
       fetch("/api/cart")
