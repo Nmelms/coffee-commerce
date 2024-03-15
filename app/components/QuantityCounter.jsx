@@ -7,12 +7,21 @@ import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 import useCartStore from "../useCartStore";
 
-const QuantityCounter = ({ id, initialQuan, productId, setData }) => {
+const QuantityCounter = ({
+  id,
+  setId,
+  initialQuan,
+  productId,
+  setData,
+  firstRun,
+  setFirstRun,
+}) => {
   const [quantity, setQuantity] = useState(initialQuan);
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
   const updateCartApi = useDebouncedCallback(async (quantity, id) => {
-    if (initialQuan !== 0) {
+    console.log(id, "this is the id");
+    if (initialQuan !== 0 || firstRun === false) {
       try {
         let res = await fetch(`${hostURL}/api/cart/update`, {
           method: "POST",
@@ -53,6 +62,8 @@ const QuantityCounter = ({ id, initialQuan, productId, setData }) => {
           useCartStore.getState().setCartData(json);
           useCartStore.getState().updateCartItems(json.items);
           useCartStore.getState().updateItemsCount(json.items_count);
+          setFirstRun(false);
+          setId(productId);
           return NextResponse.json(json);
         } else {
           return NextResponse.json({ message: "error" });
