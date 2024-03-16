@@ -21,13 +21,6 @@ const RemoveBtn = ({ item, setCartItems, cartItems, setData }) => {
         useCartStore.getState().updateCartItems(data.items);
         useCartStore.getState().updateItemsCount(data.items_count);
       });
-
-    // if (await res.ok) {
-    //   setCartItems(await res.items);
-    //   console.log(await res.items, "this is the await");
-    // }
-    // let newCart = cartItems.filter((item) => item.key !== num);
-    // return NextResponse.json(res);
   };
   return (
     <Button

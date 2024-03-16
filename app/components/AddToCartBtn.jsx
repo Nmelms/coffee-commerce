@@ -41,7 +41,6 @@ const AddToCartBtn = ({ product }) => {
         });
         if (res.ok) {
           let json = await res.json();
-          console.log(json);
           setCartData(json);
           updateCartItems(json.items);
           changeText("Success");

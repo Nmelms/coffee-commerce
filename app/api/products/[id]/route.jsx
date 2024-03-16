@@ -4,7 +4,6 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
-  console.log(request.nextUrl.pathname.split("/"), "this is the id you sent ");
   let arr = request.nextUrl.pathname.split("/");
   let id = arr[arr.length - 1];
 

@@ -23,7 +23,6 @@ export default function Home() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "this is the homepage data");
         setCartData(data);
         updateCartItems(data.items);
       });
