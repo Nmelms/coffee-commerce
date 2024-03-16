@@ -9,6 +9,7 @@ import useCartStore from "../useCartStore";
 
 const QuantityCounter = ({
   id,
+  setKey,
   setId,
   initialQuan,
   productId,
@@ -17,10 +18,14 @@ const QuantityCounter = ({
   setFirstRun,
 }) => {
   const [quantity, setQuantity] = useState(initialQuan);
+
+  const findKey = (data, id) => {
+    let itemkey = data.items.filter((item) => item.id !== id);
+    setKey(itemkey[0].key);
+  };
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
   const updateCartApi = useDebouncedCallback(async (quantity, id) => {
-    console.log(id, "this is the id");
     if (initialQuan !== 0 || firstRun === false) {
       try {
         let res = await fetch(`${hostURL}/api/cart/update`, {
@@ -63,7 +68,7 @@ const QuantityCounter = ({
           useCartStore.getState().updateCartItems(json.items);
           useCartStore.getState().updateItemsCount(json.items_count);
           setFirstRun(false);
-          setId(productId);
+          findKey(json, id);
           return NextResponse.json(json);
         } else {
           return NextResponse.json({ message: "error" });

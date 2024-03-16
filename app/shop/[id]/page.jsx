@@ -10,15 +10,13 @@ import Image from "next/image";
 import useCartStore from "../../useCartStore";
 
 const ProductPage = ({ params }) => {
-  console.log("rpdct page ran");
   const [product, setProduct] = useState(null);
   const [firstRun, setFirstRun] = useState(true);
-  const [id, setId] = useState(null);
+  const [key, setKey] = useState(params.id);
   const [item, setItem] = useState(null);
   const { cartData, setCartData, updateCartItems, cartItems } = useCartStore();
 
   useEffect(() => {
-    console.log("use effect ran");
     fetch(`/api/cart`, {
       method: "GET",
       cache: "no-cache",
@@ -32,7 +30,7 @@ const ProductPage = ({ params }) => {
         updateCartItems(data.items);
       });
 
-    fetch(`/api/products/222`, {
+    fetch(`/api/products/${params.id}`, {
       method: "GET",
       cache: "no-cache",
       headers: {
@@ -43,16 +41,9 @@ const ProductPage = ({ params }) => {
       .then((data) => setProduct(data));
   }, []);
 
-  // useEffect(() => {
-  //   let item = cartData.items?.filter((product) => product.id === params.id);
-  //   console.log(item, "this is the item we found");
-  // }, [cartData]);
-
   useEffect(() => {
-    console.log(cartData.items);
     let item = cartData.items?.filter((item) => item.id == params.id);
     setItem(item);
-    setId(item?.id);
   }, [cartData]);
 
   return (
@@ -113,7 +104,8 @@ const ProductPage = ({ params }) => {
                   <span className="product-attribute-label">Quantity:</span>
                   <span className="product-attribute-data">
                     <QuantityCounter
-                      id={id}
+                      setKey={setKey}
+                      id={key}
                       initialQuan={item?.quantity ? item?.quantity : 0}
                       productId={product.id}
                       firstRun={firstRun}
