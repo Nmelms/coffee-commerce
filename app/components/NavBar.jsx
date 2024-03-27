@@ -18,6 +18,11 @@ const NavBar = () => {
     if (window.innerWidth < 992) {
       setIsSmallScreen(true);
     }
+
+    function handleResize() {
+      setIsSmallScreen(window.innerWidth < 996);
+    }
+    window.addEventListener("resize", handleResize);
   }, []);
 
   return (
