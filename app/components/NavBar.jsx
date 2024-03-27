@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CartCount from "./CartCount";
@@ -10,8 +11,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <Navbar expand="lg" className="navBar" data-bs-theme="light">
+    <Navbar
+      expand="lg"
+      className="navBar"
+      data-bs-theme="light"
+      expanded={expanded}
+    >
       <Container>
         <a href="/">
           <Image
@@ -23,19 +31,46 @@ const NavBar = () => {
           />
         </a>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav nav-toggle" />
+        <Navbar.Toggle
+          onClick={() => setExpanded(expanded ? false : true)}
+          aria-controls="basic-navbar-nav nav-toggle"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Link className="nav-link" href="/">
+            <Link
+              onClick={() => setExpanded(expanded ? false : true)}
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
+              className="nav-link"
+              href="/"
+            >
               Home
             </Link>
-            <Link className="nav-link" href="/about">
+            <Link
+              onClick={() => setExpanded(expanded ? false : true)}
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
+              className="nav-link"
+              href="/about"
+            >
               About
             </Link>
-            <Link className="nav-link" href="/shop">
+            <Link
+              onClick={() => setExpanded(expanded ? false : true)}
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
+              className="nav-link"
+              href="/shop"
+            >
               Shop
             </Link>
-            <Link className="nav-link d-flex align-items-center" href="/cart ">
+            <Link
+              onClick={() => setExpanded(expanded ? false : true)}
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
+              className="nav-link d-flex align-items-center"
+              href="/cart "
+            >
               <FontAwesomeIcon className="cart-icon" icon={faShoppingCart} />
               <CartCount />
             </Link>
