@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import { Marcellus } from "next/font/google";
 import Script from "next/script";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 const pd = Marcellus({
   weight: ["400"],
