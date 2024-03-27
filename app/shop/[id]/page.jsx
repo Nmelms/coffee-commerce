@@ -100,24 +100,28 @@ const ProductPage = ({ params }) => {
                       : "Sorry! We are out of stock."}
                   </span>
                 </div>
-                <div className="product-attribute-wrapper d-flex align-items-center mb-5">
-                  <span className="product-attribute-label">Quantity:</span>
-                  <span className="product-attribute-data">
-                    <QuantityCounter
-                      setKey={setKey}
-                      id={key}
-                      initialQuan={item?.quantity ? item?.quantity : 0}
-                      productId={product.id}
-                      firstRun={firstRun}
-                      setFirstRun={setFirstRun}
-                    />
-                  </span>
-                </div>
-                <AddToCartBtn product={product} />
+                {product.stock_status === "instock" && (
+                  <>
+                    <div className="product-attribute-wrapper d-flex align-items-center mb-5">
+                      <span className="product-attribute-label">Quantity:</span>
+                      <span className="product-attribute-data">
+                        <QuantityCounter
+                          setKey={setKey}
+                          id={key}
+                          initialQuan={item?.quantity ? item?.quantity : 0}
+                          productId={product.id}
+                          firstRun={firstRun}
+                          setFirstRun={setFirstRun}
+                        />
+                      </span>
+                    </div>
+                    <AddToCartBtn product={product} />
+                  </>
+                )}
               </div>
             </div>
           </div>
-          <section className="product-description container">
+          <section className="product-description container mt-5">
             <div className="description-title px-4 py-3">
               PRODUCT DESCRIPTION
             </div>
