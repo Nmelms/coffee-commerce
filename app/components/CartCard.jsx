@@ -6,7 +6,6 @@ import RemoveBtn from "./RemoveBtn";
 import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import QuantityCounter from "../components/QuantityCounter";
-import { useDebouncedCallback } from "use-debounce";
 import useCartNumber from "../useCartNumber";
 
 const CartCard = ({ item, setCartItems, productId, setData }) => {
@@ -17,32 +16,6 @@ const CartCard = ({ item, setCartItems, productId, setData }) => {
     priceInDollars(item.prices.price)
   );
   const [quantity, setQuantity] = useState(item.quantity);
-  const updateCartApi = useDebouncedCallback(async (quantity, id) => {
-    try {
-      let res = await fetch(`${hostURL}/api/cart/update`, {
-        method: "POST",
-        cache: "no-cache",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ key: id, quantity: quantity }),
-      });
-
-      let json = await res.json();
-
-      if (res.ok) {
-        setData(json);
-        setItemCount(json.items_count);
-        setCartItems(json.items);
-        return NextResponse.json(json);
-      } else {
-        return NextResponse.json({ message: "error" });
-      }
-    } catch (error) {
-      console.error("Error updating cart:", error);
-      // Handle the error appropriately
-    }
-  }, 400);
 
   return (
     <Container>
@@ -63,13 +36,11 @@ const CartCard = ({ item, setCartItems, productId, setData }) => {
           className="card-name-wrapper d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center"
         >
           <h4 className="cart-card-name">{item.name}</h4>
-
           <QuantityCounter
             setCartItems={setCartItems}
             id={item.key}
             initialQuan={item.quantity}
             setQuantity={setQuantity}
-            updateCartApi={updateCartApi}
             setData={setData}
           />
         </Col>

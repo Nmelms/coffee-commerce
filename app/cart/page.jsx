@@ -13,7 +13,6 @@ import useCartStore from "../useCartStore";
 
 const Cart = () => {
   const { cartData, setCartData, updateCartItems, cartItems } = useCartStore();
-  console.log(cartData, "this the cartdata");
 
   const priceInDollars = (price) => price / 100;
   useEffect(() => {
