@@ -13,7 +13,7 @@ import useCartStore from "../useCartStore";
 
 const Cart = () => {
   const { cartData, setCartData, updateCartItems, cartItems } = useCartStore();
-  console.log(cartData);
+  console.log(cartData, "this the cartdata");
 
   const priceInDollars = (price) => price / 100;
   useEffect(() => {
@@ -35,18 +35,12 @@ const Cart = () => {
     <div className="cart container d-flex flex-column  ">
       <div
         className={`cart-list flex-column p-0 d-flex align-items-center ${
-          cartData.length === 0 ? "justify-content-center" : ""
+          !cartData.items || cartData.items.length === 0
+            ? "justify-content-center"
+            : ""
         } `}
       >
-        {cartItems.map((item) => (
-          <CartCard
-            key={item.key}
-            setData={setCartData}
-            setCartItems={updateCartItems}
-            item={item}
-          />
-        ))}
-        {cartData.length === 0 && (
+        {(!cartData.items || cartData.items.length === 0) && (
           <div className="d-flex flex-column text-center">
             <Image
               className="empty-cart"
@@ -58,6 +52,14 @@ const Cart = () => {
             <span className="py-4 cart-empty-text">You Cart is Empty!</span>
           </div>
         )}
+        {cartItems.map((item) => (
+          <CartCard
+            key={item.key}
+            setData={setCartData}
+            setCartItems={updateCartItems}
+            item={item}
+          />
+        ))}
       </div>
       {cartData.totals?.total_price && (
         <div className="d-flex justify-content-end">
