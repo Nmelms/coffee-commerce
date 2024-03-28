@@ -15,7 +15,7 @@ const CartCard = ({ item, setCartItems, productId, setData }) => {
   const [totalPrice, setTotalPrice] = useState(
     priceInDollars(item.prices.price)
   );
-  const [quantity, setQuantity] = useState(item.quantity);
+  const [itemQuantity, setItemQuantity] = useState(item.quantity);
 
   return (
     <Container>
@@ -40,7 +40,7 @@ const CartCard = ({ item, setCartItems, productId, setData }) => {
             setCartItems={setCartItems}
             id={item.key}
             initialQuan={item.quantity}
-            setQuantity={setQuantity}
+            setItemQuantity={setItemQuantity}
             setData={setData}
           />
         </Col>
@@ -55,7 +55,7 @@ const CartCard = ({ item, setCartItems, productId, setData }) => {
           </div>
           <div className="p-2 d-flex flex-column text-center">
             <p className="m-0 mb-lg-2">Total Price</p>
-            <span>${quantity * totalPrice}</span>
+            <span>${itemQuantity * totalPrice}</span>
           </div>
         </Col>
         <Col

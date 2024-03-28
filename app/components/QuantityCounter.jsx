@@ -16,6 +16,7 @@ const QuantityCounter = ({
   setData,
   firstRun,
   setFirstRun,
+  setItemQuantity,
 }) => {
   const [quantity, setQuantity] = useState(initialQuan);
 
@@ -26,6 +27,7 @@ const QuantityCounter = ({
   let hostURL = process.env.NEXT_PUBLIC_FRONT_URL;
 
   const updateCartApi = useDebouncedCallback(async (quantity, id) => {
+    setItemQuantity(quantity);
     if (initialQuan !== 0 || firstRun === false) {
       try {
         let res = await fetch(`${hostURL}/api/cart/update`, {
