@@ -26,6 +26,7 @@ export async function POST(request) {
     // Log the error message, not the response JSON, as the fetch might have failed
     console.log(error.message);
     // Return a response indicating failure
+
     return NextResponse.json({ responseData, error: error.message });
   }
 }
